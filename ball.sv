@@ -21,9 +21,9 @@ module  ball ( input Reset, frame_clk,
 	 
     parameter [9:0] Ball_X_Center=160;  // Center position on the X axis
     parameter [9:0] Ball_Y_Center=240;  // Center position on the Y axis
-    parameter [9:0] Ball_X_Min=0;       // Leftmost point on the X axis
+    parameter [9:0] Ball_X_Min=1;       // Leftmost point on the X axis
     parameter [9:0] Ball_X_Max=639;     // Rightmost point on the X axis
-    parameter [9:0] Ball_Y_Min=0;       // Topmost point on the Y axis
+    parameter [9:0] Ball_Y_Min=1;       // Topmost point on the Y axis
     parameter [9:0] Ball_Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] Ball_X_Step=1;      // Step size on the X axis
     parameter [9:0] Ball_Y_Step=1;      // Step size on the Y axis
@@ -46,7 +46,7 @@ module  ball ( input Reset, frame_clk,
 				8'h04 : begin
 							if ( (Ball_X_Pos - Ball_Size) <= Ball_X_Min ) // Ball is at the Left edge, BOUNCE!
 								begin
-				  					Ball_X_Motion <= Ball_X_Step;
+				  					Ball_X_Motion <= 0;
 								  	Ball_Y_Motion <= 0;
 								end
 							else 
@@ -59,7 +59,7 @@ module  ball ( input Reset, frame_clk,
 				8'h07 : begin	
 				        	if ( (Ball_X_Pos + Ball_Size) >= Ball_X_Max )  // Ball is at the Right edge
 					  			begin
-									Ball_X_Motion <= (~ (Ball_X_Step) + 1'b1);  // 2's complement.
+									Ball_X_Motion <= 0;  // 2's complement.
 									Ball_Y_Motion <= 0;
 								end
 							else
@@ -71,7 +71,7 @@ module  ball ( input Reset, frame_clk,
 				8'h16 : begin
 							if ( (Ball_Y_Pos + Ball_Size) >= Ball_Y_Max )  // Ball is at the bottom edge
 					  			begin
-									Ball_Y_Motion <= (~ (Ball_Y_Step) + 1'b1);  // 2's complement.
+									Ball_Y_Motion <= 0;  // 2's complement.
 									Ball_X_Motion <= 0;
 								end
 							else
@@ -83,7 +83,7 @@ module  ball ( input Reset, frame_clk,
 				8'h1A : begin
 							if ( (Ball_Y_Pos - Ball_Size) <= Ball_Y_Min )  // Ball is at the top edge
 					  			begin
-									Ball_Y_Motion <= Ball_Y_Step;
+									Ball_Y_Motion <= 0;
 									Ball_X_Motion <= 0;
 								end
 							else

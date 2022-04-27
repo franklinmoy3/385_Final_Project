@@ -157,7 +157,7 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 		.keycode_export(keycode),
 		.keycode_1_export(keycode1),
 		.keycode_2_export(keycode2),
-		.keycode_3_export(keycode3),
+		.keycode_3_export(keycode3)
 	 );
 
 

@@ -22,13 +22,14 @@ module bullet (
 );
     
     logic [9:0] Bullet_X_Pos, Bullet_X_Motion, Bullet_Y_Pos, Bullet_Y_Motion, Bullet_Size;
+	logic bullet_toggle;
 	 
     parameter [9:0] Bullet_X_Min=0;       // Leftmost point on the X axis
     parameter [9:0] Bullet_X_Max=639;     // Rightmost point on the X axis
     parameter [9:0] Bullet_Y_Min=0;       // Topmost point on the Y axis
     parameter [9:0] Bullet_Y_Max=479;     // Bottommost point on the Y axis
-    parameter [9:0] Bullet_X_Step=1;      // Step size on the X axis
-    parameter [9:0] Bullet_Y_Step=1;      // Step size on the Y axis
+    parameter [9:0] Bullet_X_Step=8;      // Step size on the X axis
+    parameter [9:0] Bullet_Y_Step=8;      // Step size on the Y axis
 
     assign Bullet_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
@@ -45,27 +46,26 @@ module bullet (
         else 
         begin 
 				if ( (Bullet_Y_Pos + Bullet_Size) >= Bullet_Y_Max )  // Ball is at the bottom edge
-					Bullet_Y_Motion <= 0;
+					bullet_toggle <= 1'b0;
 					  
 				else if ( (Bullet_Y_Pos - Bullet_Size) <= Bullet_Y_Min )  // Ball is at the top edge
-					Bullet_Y_Motion <= 0;
+					bullet_toggle <= 1'b0;
 					  
 				else if ( (Bullet_X_Pos + Bullet_Size) >= Bullet_X_Max )  // Ball is at the Right edge
-					Bullet_X_Motion <= 0;
+					bullet_toggle <= 1'b0;
 					  
 				else if ( (Bullet_X_Pos - Bullet_Size) <= Bullet_X_Min )  // Ball is at the Left edge
-					Bullet_X_Motion <= 0;
+					bullet_toggle <= 1'b0;
 					  
-				else 
-					Bullet_Y_Motion <= 0;  // Ball is somewhere in the middle, don't bounce, just keep moving
+				else
+				begin
+					case (keycode)
+						8'd44:
+							bullet_toggle <= 1'b1;
+						default: ;
+					endcase
+				end
 
-				case (keycode)
-					8'd44:
-						Bullet_X_Motion <= 2;
-					default: 
-						Bullet_X_Motion <= 0;
-				endcase
-				 
 				if (bullet_on == 1'b0)
 				begin
 					Bullet_X_Pos <= (BallX + BallS);
@@ -74,18 +74,17 @@ module bullet (
 
 				else
 				begin
-					Bullet_Y_Pos <= (Bullet_Y_Pos + Bullet_Y_Motion);
-					Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Motion); 
+					Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step); 
 				end
 		end  
     end
 
 	always_comb
 	begin
-		if (Bullet_X_Motion == 0 && Bullet_Y_Motion == 0)
-			bullet_on = 1'b0;
-		else
+		if (bullet_toggle)
 			bullet_on = 1'b1;
+		else
+			bullet_on = 1'b0;
 	end
 
     assign BulletX = Bullet_X_Pos;

@@ -51,13 +51,25 @@ module  color_mapper ( input        [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, D
        
     always_comb
     begin:RGB_Display
-        if ((ball_on == 1'b1) || (draw_bullet == 1'b1)) 
+        if ((ball_on == 1'b1)) 
         begin 
             Red = 8'hff;
             Green = 8'h00;
             Blue = 8'h00;
         end
-        else if ((ball2_on == 1'b1) || (draw_bullet2 == 1'b1))
+        else if ((draw_bullet == 1'b1) && (bullet_on == 1'b1))
+        begin 
+            Red = 8'hff;
+            Green = 8'h00;
+            Blue = 8'h00;
+        end
+        else if ((ball2_on == 1'b1))
+        begin
+            Red = 8'h00;
+            Green = 8'h00;
+            Blue = 8'hff;
+        end
+        else if ((draw_bullet2 == 1'b1) && (bullet2_on == 1'b1))
         begin
             Red = 8'h00;
             Green = 8'h00;
