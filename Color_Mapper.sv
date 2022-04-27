@@ -78,8 +78,8 @@ module  color_mapper ( input        [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, D
         else 
         begin 
             Red = 8'h00; 
-            Green = 8'hAA;
-            Blue = 8'h00;
+            Green = 8'h00;
+            Blue = 8'h7F;
         end      
     end 
     

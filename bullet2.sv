@@ -1,20 +1,10 @@
-//-------------------------------------------------------------------------
-//    Ball.sv                                                            --
-//    Viral Mehta                                                        --
-//    Spring 2005                                                        --
-//                                                                       --
-//    Modified by Stephen Kempf 03-01-2006                               --
-//                              03-12-2007                               --
-//    Translated by Joe Meng    07-07-2013                               --
-//    Fall 2014 Distribution                                             --
-//                                                                       --
-//    For use with ECE 298 Lab 7                                         --
-//    UIUC ECE Department                                                --
-//-------------------------------------------------------------------------
-
+/*
+	Player 2 bullet object
+*/
 
 module bullet2 (
 	input Reset, frame_clk,
+	input [1:0] direction,
 	input [7:0] keycode,
 	input [9:0] BallX, BallY, BallS,
     output [9:0]  BulletX, BulletY, BulletS,
@@ -22,14 +12,15 @@ module bullet2 (
 );
     
     logic [9:0] Bullet_X_Pos, Bullet_X_Motion, Bullet_Y_Pos, Bullet_Y_Motion, Bullet_Size;
-	logic bullet_toggle;
+	logic [1:0] direction_latched, fire_direction;
+	logic bullet_toggle, fire_button_released, ready_to_fire;
 	 
-    parameter [9:0] Bullet_X_Min=0;       // Leftmost point on the X axis
+    parameter [9:0] Bullet_X_Min=1;       // Leftmost point on the X axis
     parameter [9:0] Bullet_X_Max=639;     // Rightmost point on the X axis
-    parameter [9:0] Bullet_Y_Min=0;       // Topmost point on the Y axis
+    parameter [9:0] Bullet_Y_Min=1;       // Topmost point on the Y axis
     parameter [9:0] Bullet_Y_Max=479;     // Bottommost point on the Y axis
-    parameter [9:0] Bullet_X_Step=-8;      // Step size on the X axis
-    parameter [9:0] Bullet_Y_Step=-8;      // Step size on the Y axis
+    parameter [9:0] Bullet_X_Step=8;      // Step size on the X axis
+    parameter [9:0] Bullet_Y_Step=8;      // Step size on the Y axis
 
     assign Bullet_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
@@ -41,6 +32,8 @@ module bullet2 (
 			Bullet_X_Motion <= 10'd0; //Ball_X_Step;
 			Bullet_Y_Pos <= BallY + BallS;
 			Bullet_X_Pos <= BallX + BallS;
+			bullet_toggle <= 1'b0;
+			fire_button_released <= 1'b1;
         end
            
         else 
@@ -61,8 +54,16 @@ module bullet2 (
 				begin
 					case (keycode)
 						8'd88:
-							bullet_toggle <= 1'b1;
-						default: ;
+						begin
+							if (ready_to_fire)
+							begin
+								bullet_toggle <= 1'b1;
+								direction_latched <= direction;
+							end
+							fire_button_released <= 1'b0;
+						end
+						default: 
+							fire_button_released <= 1'b1;
 					endcase
 				end
 
@@ -74,7 +75,28 @@ module bullet2 (
 
 				else
 				begin
-					Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step); 
+					case (fire_direction)
+						2'b00:
+							begin
+								Bullet_X_Pos <= (Bullet_X_Pos - Bullet_X_Step);
+								Bullet_Y_Pos <= Bullet_Y_Pos;
+							end
+						2'b01:
+							begin
+								Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step);
+								Bullet_Y_Pos <= Bullet_Y_Pos;
+							end
+						2'b10:
+							begin
+								Bullet_X_Pos <= Bullet_X_Pos;
+								Bullet_Y_Pos <= (Bullet_Y_Pos + Bullet_Y_Step);
+							end
+						2'b11:
+							begin
+								Bullet_X_Pos <= Bullet_X_Pos;
+								Bullet_Y_Pos <= (Bullet_Y_Pos - Bullet_Y_Step);
+							end
+					endcase 
 				end
 		end  
     end
@@ -85,6 +107,8 @@ module bullet2 (
 			bullet_on = 1'b1;
 		else
 			bullet_on = 1'b0;
+		ready_to_fire = fire_button_released & ~bullet_on;
+		fire_direction = direction_latched;
 	end
 
     assign BulletX = Bullet_X_Pos;

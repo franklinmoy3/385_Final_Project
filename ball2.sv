@@ -1,23 +1,16 @@
-//-------------------------------------------------------------------------
-//    Ball.sv                                                            --
-//    Viral Mehta                                                        --
-//    Spring 2005                                                        --
-//                                                                       --
-//    Modified by Stephen Kempf 03-01-2006                               --
-//                              03-12-2007                               --
-//    Translated by Joe Meng    07-07-2013                               --
-//    Fall 2014 Distribution                                             --
-//                                                                       --
-//    For use with ECE 298 Lab 7                                         --
-//    UIUC ECE Department                                                --
-//-------------------------------------------------------------------------
+/*
+	Player 2 tank object
+*/
 
-
-module  ball2 ( input Reset, frame_clk,
-					input [7:0] keycode,
-               output [9:0]  BallX, BallY, BallS );
+module ball2 (
+	input Reset, frame_clk,
+	input [7:0] keycode,
+	output [9:0] BallX, BallY, BallS,
+	output [1:0] direction 
+);
     
     logic [9:0] Ball_X_Pos, Ball_X_Motion, Ball_Y_Pos, Ball_Y_Motion, Ball_Size;
+	logic [1:0] direction_delayed; // 00 = Facing Left, 01 = Right, 10 = Down, 11 = Up
 	 
     parameter [9:0] Ball_X_Center=480;  // Center position on the X axis
     parameter [9:0] Ball_Y_Center=240;  // Center position on the Y axis
@@ -38,13 +31,14 @@ module  ball2 ( input Reset, frame_clk,
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;
 			Ball_Y_Pos <= Ball_Y_Center;
 			Ball_X_Pos <= Ball_X_Center;
+			direction_delayed <= 2'b00;
         end
            
         else 
         begin 
 			case (keycode)
 				8'd80 : begin
-							if ( (Ball_X_Pos - Ball_Size) <= Ball_X_Min ) // Ball is at the Left edge, BOUNCE!
+							if ( (Ball_X_Pos - Ball_Size) <= Ball_X_Min ) // Ball is at the Left edge
 								begin
 				  					Ball_X_Motion <= 0;
 								  	Ball_Y_Motion <= 0;
@@ -54,6 +48,7 @@ module  ball2 ( input Reset, frame_clk,
 									Ball_X_Motion <= -1;//A
 									Ball_Y_Motion <= 0;
 								end
+							direction_delayed <= 2'b00;
 						end
 					        
 				8'd79 : begin	
@@ -67,6 +62,7 @@ module  ball2 ( input Reset, frame_clk,
 									Ball_X_Motion <= 1;//D
 						  			Ball_Y_Motion <= 0;
 								end
+							direction_delayed <= 2'b01;
 						end 
 				8'd81 : begin
 							if ( (Ball_Y_Pos + Ball_Size) >= Ball_Y_Max )  // Ball is at the bottom edge
@@ -79,6 +75,7 @@ module  ball2 ( input Reset, frame_clk,
 					        		Ball_Y_Motion <= 1;//S
 							  		Ball_X_Motion <= 0;
 								end
+							direction_delayed <= 2'b10;
 						end  
 				8'd82 : begin
 							if ( (Ball_Y_Pos - Ball_Size) <= Ball_Y_Min )  // Ball is at the top edge
@@ -91,6 +88,7 @@ module  ball2 ( input Reset, frame_clk,
 									Ball_Y_Motion <= -1;//W
 							  		Ball_X_Motion <= 0;
 								end
+							direction_delayed <= 2'b11;
 						end	  
 				default: begin
 							Ball_X_Motion <= 0;
@@ -105,10 +103,8 @@ module  ball2 ( input Reset, frame_clk,
     end
        
     assign BallX = Ball_X_Pos;
-   
     assign BallY = Ball_Y_Pos;
-   
     assign BallS = Ball_Size;
-    
+    assign direction = direction_delayed;
 
 endmodule

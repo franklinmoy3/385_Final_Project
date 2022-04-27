@@ -177,7 +177,7 @@ int main() {
 				//run keyboard debug polling
 				rcode = kbdPoll(&kbdbuf);
 				if (rcode == hrNAK) {
-					continue; //NAK means no new data
+					// We want to continuously poll, so read even if there is no new data
 				} else if (rcode) {
 					printf("Rcode: ");
 					printf("%x \n", rcode);
@@ -233,7 +233,7 @@ int main() {
 							keystrokeMap[i] = 3;
 							setKeycode(3, kbdbuf.keycode[i]);
 							break;
-						// Key releases (could cause movement to stop when released if holding multiple direction buttons)
+						// Key releases (could cause movement jitters or stops when released if holding multiple direction buttons)
 						case 0:
 							switch (keystrokeMap[i]) {
 								case 0:
