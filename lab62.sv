@@ -163,15 +163,18 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 		.keycode_3_export(keycode3)
 	 );
 
+	assign b1_barrier_collision = b1_barrier_collision_1;
+	assign b2_barrier_collision = b2_barrier_collision_1;
+
 	parameter int barrier_1_params[4] = '{300, 400, 35, 60}; // In form: '{BarrierX, BarrierY, Barrier_Height_Halved, Barrier_Length_Halved}
 
 
 	vga_controller vga(.Clk(MAX10_CLK1_50), .Reset(Reset_h), .hs(VGA_HS), .vs(VGA_VS), .pixel_clk(VGA_Clk), .blank(blank), .sync(sync), .DrawX(drawxsig), .DrawY(drawysig));
 	ball ball(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .direction(p1_direction), .was_hit(player_1_hit), .barrier_collision(p1_barrier_collision));
 	ball2 ball2(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode1), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(), .direction(p2_direction), .was_hit(player_2_hit), .barrier_collision(p2_barrier_collision));
-	barrier b1(.Reset(Reset_h), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig), .Bullet_Size(bulletsizesig), .BarrierX(barrier_1_params[0]), .BarrierY(barrier_1_params[1]), .Barrier_Height_Halved(barrier_1_params[2]), .Barrier_Length_Halved(barrier_1_params[3]), .player_1_collision(p1_barrier_collision), .player_2_collision(p2_barrier_collision), .bullet_1_collision(b1_barrier_collision), .bullet_2_collision(b2_barrier_collision));
-	bullet bullet(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode2), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .BulletS(bulletsizesig), .bullet_on(bulletOnSig), .direction(p1_direction));
-	bullet2 bullet2(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode3), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(ballsizesig), .BulletX(bullet2xsig), .BulletY(bullet2ysig), .BulletS(), .bullet_on(bullet2OnSig), .direction(p2_direction));
+	barrier b1(.Reset(Reset_h), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig), .Bullet_Size(bulletsizesig), .BarrierX(barrier_1_params[0]), .BarrierY(barrier_1_params[1]), .Barrier_Height_Halved(barrier_1_params[2]), .Barrier_Length_Halved(barrier_1_params[3]), .player_1_collision(p1_barrier_collision), .player_2_collision(p2_barrier_collision), .bullet_1_collision(b1_barrier_collision_1), .bullet_2_collision(b2_barrier_collision_1));
+	bullet bullet(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode2), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .BulletS(bulletsizesig), .bullet_on(bulletOnSig), .direction(p1_direction), .barrier_collision(b1_barrier_collision));
+	bullet2 bullet2(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode3), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(ballsizesig), .BulletX(bullet2xsig), .BulletY(bullet2ysig), .BulletS(), .bullet_on(bullet2OnSig), .direction(p2_direction), .barrier_collision(b2_barrier_collision));
 	hit_detector hd(.Reset(Reset_h), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig), .Bullet_Size(bulletsizesig), .player_1_hit(player_1_hit), .player_2_hit(player_2_hit));
 	color_mapper colormapper(.BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_size(ballsizesig),
 							 .DrawX(drawxsig), .DrawY(drawysig), .Red(Red), .Green(Green), .Blue(Blue),

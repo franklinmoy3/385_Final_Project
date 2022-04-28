@@ -166,7 +166,7 @@ int main() {
 	// Initialize keycode buffers
 	for(int i = 0; i < 6; i++) {
 		kbdbuf.keycode[i] = 0;
-		keystrokeMap[i] = 0;
+		keystrokeMap[i] = 4;
 	}
 	while (1) {
 		printf(".");

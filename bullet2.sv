@@ -7,6 +7,7 @@ module bullet2 (
 	input [1:0] direction,
 	input [7:0] keycode,
 	input [9:0] BallX, BallY, BallS,
+	input barrier_collision,
     output [9:0]  BulletX, BulletY, BulletS,
 	output bullet_on
 );
@@ -49,6 +50,9 @@ module bullet2 (
 					  
 				else if ( (Bullet_X_Pos - Bullet_Size) <= Bullet_X_Min )  // Ball is at the Left edge
 					bullet_toggle <= 1'b0;
+				
+				else if (barrier_collision)
+					bullet_toggle <= 1'b0;
 					  
 				else
 				begin
@@ -69,8 +73,8 @@ module bullet2 (
 
 				if (bullet_on == 1'b0)
 				begin
-					Bullet_X_Pos <= (BallX + BallS);
-					Bullet_Y_Pos <= (BallY + BallS);
+					Bullet_X_Pos <= BallX;
+					Bullet_Y_Pos <= BallY;
 				end
 
 				else
