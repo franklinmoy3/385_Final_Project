@@ -189,6 +189,13 @@ int main() {
 					continue;
 				}
 				printf("keycodes: ");
+				
+				// Workaround for allowing players to hold down keys without interfering 
+				//  with the other player's mapping by resetting all keycode PIOs
+				for (int i = 0; i < 4; i++) {
+					setKeycode(i, 0);
+				}
+				
 				for (int i = 0; i < 6; i++) {
 					printf("%x ", kbdbuf.keycode[i]);
 
