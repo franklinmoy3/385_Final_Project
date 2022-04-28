@@ -1,23 +1,15 @@
-//-------------------------------------------------------------------------
-//    Color_Mapper.sv                                                    --
-//    Stephen Kempf                                                      --
-//    3-1-06                                                             --
-//                                                                       --
-//    Modified by David Kesler  07-16-2008                               --
-//    Translated by Joe Meng    07-07-2013                               --
-//                                                                       --
-//    Fall 2014 Distribution                                             --
-//                                                                       --
-//    For use with ECE 385 Lab 7                                         --
-//    University of Illinois ECE Department                              --
-//-------------------------------------------------------------------------
+/*
+    VGA Drawing engine
+*/
 
-
-module  color_mapper ( input        [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, DrawY, Ball_size,
-                       input        [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size, bullet_on, bullet2_on,
-                       output logic [7:0]  Red, Green, Blue );
+module color_mapper ( 
+    input [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, DrawY, Ball_size,
+    input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size, bullet_on, bullet2_on,
+    input [9:0] BarrierX, BarrierY, Barrier_Height_Halved, Barrier_Length_Halved,
+    output logic [7:0] Red, Green, Blue
+);
     
-    logic ball_on, ball2_on, draw_bullet, draw_bullet2;
+    logic ball_on, ball2_on, draw_bullet, draw_bullet2, barrier_on;
 	 
 	  
     int DistX, DistY, Dist2X, Dist2Y, Size;
@@ -28,7 +20,7 @@ module  color_mapper ( input        [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, D
     assign Size = Ball_size;
 	  
     always_comb
-    begin:Ball_on_proc
+    begin: Drawing_Engine
         if ((DrawX >= BallX - Ball_size) && (DrawX <= BallX + Ball_size) &&
             (DrawY >= BallY - Ball_size) && (DrawY <= BallY + Ball_size)) 
             ball_on = 1'b1;
@@ -47,6 +39,11 @@ module  color_mapper ( input        [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, D
             draw_bullet2 = 1'b1;
         else 
             draw_bullet2 = 1'b0;
+        if ((DrawX >= BarrierX - Barrier_Length_Halved) && (DrawX <= BarrierX + Barrier_Length_Halved) &&
+            (DrawY >= BarrierY - Barrier_Height_Halved) && (DrawY <= BarrierY + Barrier_Height_Halved)) 
+            barrier_on = 1'b1;
+        else 
+            barrier_on = 1'b0;
      end 
        
     always_comb
@@ -73,6 +70,12 @@ module  color_mapper ( input        [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, D
         begin
             Red = 8'h00;
             Green = 8'h00;
+            Blue = 8'hff;
+        end
+        else if (barrier_on)
+        begin
+            Red = 8'h00;
+            Green = 8'hff;
             Blue = 8'hff;
         end
         else 

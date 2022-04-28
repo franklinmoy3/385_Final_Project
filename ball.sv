@@ -3,8 +3,10 @@
 */
 
 module ball (
-	input Reset, frame_clk, was_hit,
+	input Reset, frame_clk,
 	input [7:0] keycode,
+	input was_hit, 
+	input [3:0] barrier_collision,
 	output [9:0] BallX, BallY, BallS,
 	output [1:0] direction
 );
@@ -21,7 +23,7 @@ module ball (
     parameter [9:0] Ball_X_Step=1;      // Step size on the X axis
     parameter [9:0] Ball_Y_Step=1;      // Step size on the Y axis
 
-    assign Ball_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
+    assign Ball_Size = 8;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
     always_ff @ (posedge Reset or posedge was_hit or posedge frame_clk )
     begin: Move_Ball
@@ -38,7 +40,9 @@ module ball (
         begin 
 			case (keycode)
 				8'h04 : begin
-							if ( (Ball_X_Pos - Ball_Size) <= Ball_X_Min ) // Ball is at the Left edge, BOUNCE!
+							// Ball is at the Left edge or hitting the right wall of a barrier
+							if ( ((Ball_X_Pos - Ball_Size) <= Ball_X_Min) ||
+								 barrier_collision[1] ) 
 								begin
 				  					Ball_X_Motion <= 0;
 								  	Ball_Y_Motion <= 0;
@@ -52,9 +56,11 @@ module ball (
 						end
 					        
 				8'h07 : begin	
-				        	if ( (Ball_X_Pos + Ball_Size) >= Ball_X_Max )  // Ball is at the Right edge
+							// Ball is at the Right edge or is hitting the left wall of a barrier
+				        	if ( ((Ball_X_Pos + Ball_Size) >= Ball_X_Max) ||
+							     barrier_collision[0] )  
 					  			begin
-									Ball_X_Motion <= 0;  // 2's complement.
+									Ball_X_Motion <= 0;  
 									Ball_Y_Motion <= 0;
 								end
 							else
@@ -65,9 +71,11 @@ module ball (
 							direction_delayed <= 2'b01;
 						end 
 				8'h16 : begin
-							if ( (Ball_Y_Pos + Ball_Size) >= Ball_Y_Max )  // Ball is at the bottom edge
+							// Ball is at the bottom edge or is hitting the top wall of a barrier
+							if ( ((Ball_Y_Pos + Ball_Size) >= Ball_Y_Max) ||
+							     barrier_collision[2] )  
 					  			begin
-									Ball_Y_Motion <= 0;  // 2's complement.
+									Ball_Y_Motion <= 0; 
 									Ball_X_Motion <= 0;
 								end
 							else
@@ -78,7 +86,9 @@ module ball (
 							direction_delayed <= 2'b10;
 						end  
 				8'h1A : begin
-							if ( (Ball_Y_Pos - Ball_Size) <= Ball_Y_Min )  // Ball is at the top edge
+							// Ball is at the top edge or is hitting the bottom wall of a barrier
+							if ( ((Ball_Y_Pos - Ball_Size) <= Ball_Y_Min) || 
+							     barrier_collision[3])  
 					  			begin
 									Ball_Y_Motion <= 0;
 									Ball_X_Motion <= 0;

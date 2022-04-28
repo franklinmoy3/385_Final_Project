@@ -19,8 +19,8 @@ module bullet (
     parameter [9:0] Bullet_X_Max=639;     // Rightmost point on the X axis
     parameter [9:0] Bullet_Y_Min=1;       // Topmost point on the Y axis
     parameter [9:0] Bullet_Y_Max=479;     // Bottommost point on the Y axis
-    parameter [9:0] Bullet_X_Step=8;      // Step size on the X axis
-    parameter [9:0] Bullet_Y_Step=8;      // Step size on the Y axis
+    parameter [9:0] Bullet_X_Step=12;      // Step size on the X axis
+    parameter [9:0] Bullet_Y_Step=12;      // Step size on the Y axis
 
     assign Bullet_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    

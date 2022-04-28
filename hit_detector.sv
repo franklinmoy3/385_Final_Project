@@ -1,3 +1,7 @@
+/*
+    Module for bullet hit detection against players
+*/
+
 module hit_detector (
     input Reset, frame_clk,
     input [9:0] BallX, BallY, Ball2X, Ball2Y, Ball_Size,
