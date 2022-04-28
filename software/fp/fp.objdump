@@ -1637,6 +1637,8 @@ int main() {
  4000934:	210c0c04 	addi	r4,r4,12336
  4000938:	40032a00 	call	40032a0 <printf>
 				
+				// Workaround for allowing players to hold down keys without interfering 
+				//  with the other player's mapping by resetting all keycode PIOs
 				for (int i = 0; i < 4; i++) {
  400093c:	e03ff615 	stw	zero,-40(fp)
  4000940:	00000706 	br	4000960 <main+0x14c>
@@ -1645,11 +1647,11 @@ int main() {
  4000948:	000b883a 	mov	r5,zero
  400094c:	1009883a 	mov	r4,r2
  4000950:	40007580 	call	4000758 <setKeycode>
-					printf("%x \n", rcode);
-					continue;
 				}
 				printf("keycodes: ");
 				
+				// Workaround for allowing players to hold down keys without interfering 
+				//  with the other player's mapping by resetting all keycode PIOs
 				for (int i = 0; i < 4; i++) {
  4000954:	e0bff617 	ldw	r2,-40(fp)
  4000958:	10800044 	addi	r2,r2,1
@@ -1997,10 +1999,10 @@ int main() {
  4000dd4:	10800017 	ldw	r2,0(r2)
  4000dd8:	1000683a 	jmp	r2
  4000ddc:	04000df0 	cmpltui	r16,zero,55
- 4000de0:	04000e00 	call	4000e0 <__alt_mem_sdram-0x3bfff20>
+ 4000de0:	04000e00 	call	4000e0 <__reset-0x3bfff20>
  4000de4:	04000e10 	cmplti	r16,zero,56
  4000de8:	04000e20 	cmpeqi	r16,zero,56
- 4000dec:	04000e40 	call	4000e4 <__alt_mem_sdram-0x3bfff1c>
+ 4000dec:	04000e40 	call	4000e4 <__reset-0x3bfff1c>
 								case 0:
 									setKeycode(0, 0);
  4000df0:	000b883a 	mov	r5,zero
@@ -2062,7 +2064,7 @@ int main() {
 						default:
 							break;
  4000e64:	0001883a 	nop
-				
+				//  with the other player's mapping by resetting all keycode PIOs
 				for (int i = 0; i < 4; i++) {
 					setKeycode(i, 0);
 				}
@@ -5984,7 +5986,7 @@ char* ConvUTF8ToStr(BYTE* utf8, BYTE length)
  4003698:	040042c4 	movi	r16,267
  400369c:	040042c4 	movi	r16,267
  40036a0:	040042c4 	movi	r16,267
- 40036a4:	04003980 	call	400398 <__alt_mem_sdram-0x3bffc68>
+ 40036a4:	04003980 	call	400398 <__reset-0x3bffc68>
  40036a8:	04003a48 	cmpgei	r16,zero,233
  40036ac:	040042c4 	movi	r16,267
  40036b0:	04003a48 	cmpgei	r16,zero,233
@@ -5995,7 +5997,7 @@ char* ConvUTF8ToStr(BYTE* utf8, BYTE length)
  40036c4:	04003af4 	movhi	r16,235
  40036c8:	040042c4 	movi	r16,267
  40036cc:	040042c4 	movi	r16,267
- 40036d0:	04003b00 	call	4003b0 <__alt_mem_sdram-0x3bffc50>
+ 40036d0:	04003b00 	call	4003b0 <__reset-0x3bffc50>
  40036d4:	040042c4 	movi	r16,267
  40036d8:	040042c4 	movi	r16,267
  40036dc:	040042c4 	movi	r16,267
@@ -13862,7 +13864,7 @@ char* ConvUTF8ToStr(BYTE* utf8, BYTE length)
  400af60:	0400b624 	muli	r16,zero,728
  400af64:	0400b924 	muli	r16,zero,740
  400af68:	0400b924 	muli	r16,zero,740
- 400af6c:	0400b640 	call	400b64 <__alt_mem_sdram-0x3bff49c>
+ 400af6c:	0400b640 	call	400b64 <__reset-0x3bff49c>
  400af70:	0400b924 	muli	r16,zero,740
  400af74:	0400b924 	muli	r16,zero,740
  400af78:	0400b924 	muli	r16,zero,740
@@ -13873,7 +13875,7 @@ char* ConvUTF8ToStr(BYTE* utf8, BYTE length)
  400af8c:	0400b86c 	andhi	r16,zero,737
  400af90:	0400b924 	muli	r16,zero,740
  400af94:	0400b164 	muli	r16,zero,709
- 400af98:	0400b880 	call	400b88 <__alt_mem_sdram-0x3bff478>
+ 400af98:	0400b880 	call	400b88 <__reset-0x3bff478>
  400af9c:	0400b924 	muli	r16,zero,740
  400afa0:	0400b64c 	andi	r16,zero,729
  400afa4:	0400b658 	cmpnei	r16,zero,729
@@ -17967,9 +17969,9 @@ char* ConvUTF8ToStr(BYTE* utf8, BYTE length)
  400eea4:	0400f098 	cmpnei	r16,zero,962
  400eea8:	0400f0b0 	cmpltui	r16,zero,962
  400eeac:	0400eedc 	xori	r16,zero,955
- 400eeb0:	0400f0c0 	call	400f0c <__alt_mem_sdram-0x3bff0f4>
- 400eeb4:	0400f0c0 	call	400f0c <__alt_mem_sdram-0x3bff0f4>
- 400eeb8:	0400f0c0 	call	400f0c <__alt_mem_sdram-0x3bff0f4>
+ 400eeb0:	0400f0c0 	call	400f0c <__reset-0x3bff0f4>
+ 400eeb4:	0400f0c0 	call	400f0c <__reset-0x3bff0f4>
+ 400eeb8:	0400f0c0 	call	400f0c <__reset-0x3bff0f4>
  400eebc:	0400f420 	cmpeqi	r16,zero,976
  400eec0:	2404b03a 	or	r2,r4,r16
  400eec4:	1000711e 	bne	r2,zero,400f08c <__muldf3+0x300>
@@ -24181,13 +24183,13 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  4012b04:	04012b48 	cmpgei	r16,zero,1197
  4012b08:	04012b48 	cmpgei	r16,zero,1197
  4012b0c:	04012b38 	rdprs	r16,zero,1196
- 4012b10:	04012b40 	call	4012b4 <__alt_mem_sdram-0x3bfed4c>
+ 4012b10:	04012b40 	call	4012b4 <__reset-0x3bfed4c>
  4012b14:	04012b48 	cmpgei	r16,zero,1197
  4012b18:	04012b38 	rdprs	r16,zero,1196
  4012b1c:	04012b38 	rdprs	r16,zero,1196
  4012b20:	04012b48 	cmpgei	r16,zero,1197
  4012b24:	04012b38 	rdprs	r16,zero,1196
- 4012b28:	04012b40 	call	4012b4 <__alt_mem_sdram-0x3bfed4c>
+ 4012b28:	04012b40 	call	4012b4 <__reset-0x3bfed4c>
  4012b2c:	04012b48 	cmpgei	r16,zero,1197
  4012b30:	04012b48 	cmpgei	r16,zero,1197
  4012b34:	04012b38 	rdprs	r16,zero,1196
@@ -24307,7 +24309,7 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  4012ca0:	d9400015 	stw	r5,0(sp)
  4012ca4:	d9800115 	stw	r6,4(sp)
  4012ca8:	d9c00215 	stw	r7,8(sp)
- 4012cac:	00000000 	call	0 <__alt_mem_sdram-0x4000000>
+ 4012cac:	00000000 	call	0 <__reset-0x4000000>
  4012cb0:	d9400017 	ldw	r5,0(sp)
  4012cb4:	d9800117 	ldw	r6,4(sp)
  4012cb8:	d9c00217 	ldw	r7,8(sp)
@@ -24391,7 +24393,7 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  4012de8:	10003226 	beq	r2,zero,4012eb4 <__call_exitprocs+0x178>
  4012dec:	a009883a 	mov	r4,r20
  4012df0:	98800015 	stw	r2,0(r19)
- 4012df4:	00000000 	call	0 <__alt_mem_sdram-0x4000000>
+ 4012df4:	00000000 	call	0 <__reset-0x4000000>
  4012df8:	9d000017 	ldw	r20,0(r19)
  4012dfc:	a03fe41e 	bne	r20,zero,4012d90 <__alt_mem_onchip_memory2_0+0xfc011b30>
  4012e00:	dfc00a17 	ldw	ra,40(sp)

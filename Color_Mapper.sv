@@ -6,6 +6,7 @@ module color_mapper (
     input [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, DrawY, Ball_size,
     input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size, bullet_on, bullet2_on,
     input [9:0] BarrierX, BarrierY, Barrier_Height_Halved, Barrier_Length_Halved,
+    input blank,
     output logic [7:0] Red, Green, Blue
 );
     
@@ -78,10 +79,16 @@ module color_mapper (
             Green = 8'hff;
             Blue = 8'hff;
         end
+        else if (~blank)
+        begin
+            Red = 8'h00;
+            Green = 8'h00;
+            Blue = 8'h00;
+        end
         else 
         begin 
-            Red = 8'h00; 
-            Green = 8'h00;
+            Red = 8'h70; 
+            Green = 8'h70;
             Blue = 8'h7f;
         end      
     end 
