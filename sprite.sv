@@ -6,6 +6,8 @@ module spriteTable(input logic clk,
 
 always_comb
 begin
+	
+// The sprites are indexed as arrays
 
 blueTank <=
 '{
@@ -36,7 +38,7 @@ blueTank <=
 '{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
-red <=
+redTank <=
 '{
 '{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 '{0,0,0,0,0,0,0,4,1,1,0,0,0,0,0,0,0,0},
