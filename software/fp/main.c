@@ -163,6 +163,11 @@ int main() {
 	MAX3421E_init();
 	printf("initializing USB...\n");
 	USB_init();
+	// Initialize keycode buffers
+	for(int i = 0; i < 6; i++) {
+		kbdbuf.keycode[i] = 0;
+		keystrokeMap[i] = 0;
+	}
 	while (1) {
 		printf(".");
 		MAX3421E_Task();

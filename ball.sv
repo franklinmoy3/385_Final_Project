@@ -3,7 +3,7 @@
 */
 
 module ball (
-	input Reset, frame_clk,
+	input Reset, frame_clk, was_hit,
 	input [7:0] keycode,
 	output [9:0] BallX, BallY, BallS,
 	output [1:0] direction
@@ -23,9 +23,9 @@ module ball (
 
     assign Ball_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
-    always_ff @ (posedge Reset or posedge frame_clk )
+    always_ff @ (posedge Reset or posedge was_hit or posedge frame_clk )
     begin: Move_Ball
-        if (Reset)  // Asynchronous Reset
+        if (Reset || was_hit)  // Asynchronous Reset
         begin 
             Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;

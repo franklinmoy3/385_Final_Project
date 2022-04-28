@@ -67,11 +67,12 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 	logic [1:0] hundreds;
 	logic [9:0] drawxsig, drawysig, ballxsig, ballysig, ball2xsig, ball2ysig, ballsizesig;
 	logic [9:0] bulletxsig, bulletysig, bullet2xsig, bullet2ysig, bulletsizesig;
-	logic bulletOnSig;
+	logic bulletOnSig, bullet2OnSig;
 	logic [7:0] Red, Blue, Green;
 	// keycode meanings: P1 movement, P2 movement, P1 fire, P2 fire
 	logic [7:0] keycode, keycode1, keycode2, keycode3;
 	logic [1:0] p1_direction, p2_direction;
+	logic player_1_hit, player_2_hit;
 
 //=======================================================
 //  Structural coding
@@ -163,10 +164,11 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 
 
 	vga_controller vga(.Clk(MAX10_CLK1_50), .Reset(Reset_h), .hs(VGA_HS), .vs(VGA_VS), .pixel_clk(VGA_Clk), .blank(blank), .sync(sync), .DrawX(drawxsig), .DrawY(drawysig));
-	ball ball(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .direction(p1_direction));
-	ball2 ball2(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode1), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(), .direction(p2_direction));
+	ball ball(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .direction(p1_direction), .was_hit(player_1_hit));
+	ball2 ball2(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode1), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(), .direction(p2_direction), .was_hit(player_2_hit));
 	bullet bullet(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode2), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .BulletS(bulletsizesig), .bullet_on(bulletOnSig), .direction(p1_direction));
 	bullet2 bullet2(.Reset(Reset_h), .frame_clk(VGA_VS), .keycode(keycode3), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(ballsizesig), .BulletX(bullet2xsig), .BulletY(bullet2ysig), .BulletS(), .bullet_on(bullet2OnSig), .direction(p2_direction));
+	hit_detector hd(.Reset(Reset_h), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig), .Bullet_Size(bulletsizesig), .player_1_hit(player_1_hit), .player_2_hit(player_2_hit));
 	color_mapper colormapper(.BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_size(ballsizesig),
 							 .DrawX(drawxsig), .DrawY(drawysig), .Red(Red), .Green(Green), .Blue(Blue),
 							 .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig),
