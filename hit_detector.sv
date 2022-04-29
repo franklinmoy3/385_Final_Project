@@ -6,7 +6,9 @@ module hit_detector (
     input Reset, frame_clk,
     input [9:0] BallX, BallY, Ball2X, Ball2Y, Ball_Size,
     input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size,
-    output player_1_hit, player_2_hit
+    input bullet_on, bullet2_on,
+    output player_1_hit, player_2_hit,
+    output [4:0] player_1_score, player_2_score
 );
 
     logic p1_hit_latched, p2_hit_latched;
@@ -17,6 +19,8 @@ module hit_detector (
         begin
             p1_hit_latched <= 1'b0;
             p2_hit_latched <= 1'b0;
+            player_1_score <= 5'b0;
+            player_2_score <= 5'b0;
         end
 
         else
@@ -25,29 +29,41 @@ module hit_detector (
             if ( (BulletX + Bullet_Size) >= (Ball2X - Ball_Size) &&
                  (BulletX + Bullet_Size) <= (Ball2X + Ball_Size) &&
                  (BulletY <= Ball2Y + Ball_Size) &&
-                 (BulletY >= Ball2Y - Ball_Size) )
+                 (BulletY >= Ball2Y - Ball_Size))
+                begin
                     p2_hit_latched <= 1'b1;
+                    player_1_score <= player_1_score + 1'b1;
+                end
 
             // P1 bullet's left side hits P2
             else if ( (BulletX - Bullet_Size) >= (Ball2X - Ball_Size) &&
                  (BulletX - Bullet_Size) <= (Ball2X + Ball_Size) &&
                  (BulletY <= Ball2Y + Ball_Size) &&
-                 (BulletY >= Ball2Y - Ball_Size) )
+                 (BulletY >= Ball2Y - Ball_Size))
+            begin
                     p2_hit_latched <= 1'b1;
+                    player_1_score <= player_1_score + 1'b1;
+            end
             
             // P1 bullet's bottom side hits P2
             else if ( (BulletY + Bullet_Size) >= (Ball2Y - Ball_Size) &&
                  (BulletY + Bullet_Size) <= (Ball2Y + Ball_Size) &&
                  (BulletX <= Ball2X + Ball_Size) &&
-                 (BulletX >= Ball2X - Ball_Size) )
+                 (BulletX >= Ball2X - Ball_Size))
+            begin
                     p2_hit_latched <= 1'b1;
-            
+                    player_1_score <= player_1_score + 1'b1;
+            end
+
             // P1 bullet's top side hits P2
             else if ( (BulletY - Bullet_Size) >= (Ball2Y - Ball_Size) &&
                  (BulletY - Bullet_Size) <= (Ball2Y + Ball_Size) &&
                  (BulletX <= Ball2X + Ball_Size) &&
-                 (BulletX >= Ball2X - Ball_Size) )
+                 (BulletX >= Ball2X - Ball_Size))
+            begin
                     p2_hit_latched <= 1'b1;
+                    player_1_score <= player_1_score + 1'b1;
+            end
 
             else
                 p2_hit_latched <= 1'b0;
@@ -56,29 +72,41 @@ module hit_detector (
             if ( (Bullet2X + Bullet_Size) >= (BallX - Ball_Size) &&
                  (Bullet2X + Bullet_Size) <= (BallX + Ball_Size) &&
                  (Bullet2Y <= BallY + Ball_Size) &&
-                 (Bullet2Y >= BallY - Ball_Size) )
+                 (Bullet2Y >= BallY - Ball_Size))
+            begin
                     p1_hit_latched <= 1'b1;
+                    player_2_score <= player_2_score + 1'b1;
+            end
 
             // P2 bullet's left side hits P1
             else if ( (Bullet2X - Bullet_Size) >= (BallX - Ball_Size) &&
                  (Bullet2X - Bullet_Size) <= (BallX + Ball_Size) &&
                  (Bullet2Y <= BallY + Ball_Size) &&
-                 (Bullet2Y >= BallY - Ball_Size) )
+                 (Bullet2Y >= BallY - Ball_Size))
+            begin
                     p1_hit_latched <= 1'b1;
+                    player_2_score <= player_2_score + 1'b1;
+            end
             
             // P2 bullet's bottom side hits P1
             else if ( (Bullet2Y + Bullet_Size) >= (BallY - Ball_Size) &&
                  (Bullet2Y + Bullet_Size) <= (BallY + Ball_Size) &&
                  (Bullet2X <= BallX + Ball_Size) &&
-                 (Bullet2X >= BallX - Ball_Size) )
+                 (Bullet2X >= BallX - Ball_Size))
+            begin
                     p1_hit_latched <= 1'b1;
+                    player_2_score <= player_2_score + 1'b1;
+            end
             
             // P2 bullet's top side hits P1
             else if ( (Bullet2Y - Bullet_Size) >= (BallY - Ball_Size) &&
                  (Bullet2Y - Bullet_Size) <= (BallY + Ball_Size) &&
                  (Bullet2X <= BallX + Ball_Size) &&
-                 (Bullet2X >= BallX - Ball_Size) )
+                 (Bullet2X >= BallX - Ball_Size))
+            begin
                     p1_hit_latched <= 1'b1;
+                    player_2_score <= player_2_score + 1'b1;
+            end
 
             else
                 p1_hit_latched <= 1'b0;

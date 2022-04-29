@@ -26,7 +26,7 @@ module barrier (
         else 
         begin 
 			
-			// P1's right side hits barrier
+        // P1's right side hits barrier
             if ( (BallX + Ball_Size) >= (BarrierX - Barrier_Length_Halved) &&
                  (BallX + Ball_Size) <= (BarrierX + Barrier_Length_Halved) &&
                  (BallY <= BarrierY + Barrier_Height_Halved) &&
@@ -150,7 +150,7 @@ module barrier (
             else
                 bullet_2_collision = 1'b0;
 
-		end  
+	end  
     end
        
     

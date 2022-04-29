@@ -6,6 +6,7 @@ module color_mapper (
     input [9:0] BallX, BallY, Ball2X, Ball2Y, DrawX, DrawY, Ball_size,
     input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size, bullet_on, bullet2_on,
     input [9:0] BarrierX, BarrierY, Barrier_Height_Halved, Barrier_Length_Halved,
+    input [9:0] Barrier2X, Barrier2Y, Barrier_2_Height_Halved, Barrier_2_Length_Halved,
     input blank,
     output logic [7:0] Red, Green, Blue
 );
@@ -42,6 +43,9 @@ module color_mapper (
             draw_bullet2 = 1'b0;
         if ((DrawX >= BarrierX - Barrier_Length_Halved) && (DrawX <= BarrierX + Barrier_Length_Halved) &&
             (DrawY >= BarrierY - Barrier_Height_Halved) && (DrawY <= BarrierY + Barrier_Height_Halved)) 
+            barrier_on = 1'b1;
+        else if ((DrawX >= Barrier2X - Barrier_2_Length_Halved) && (DrawX <= Barrier2X + Barrier_2_Length_Halved) &&
+            (DrawY >= Barrier2Y - Barrier_2_Height_Halved) && (DrawY <= Barrier2Y + Barrier_2_Height_Halved)) 
             barrier_on = 1'b1;
         else 
             barrier_on = 1'b0;
