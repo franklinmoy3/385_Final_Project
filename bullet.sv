@@ -7,7 +7,7 @@ module bullet (
 	input [1:0] direction,
 	input [7:0] keycode,
 	input [9:0] BallX, BallY, BallS,
-	input barrier_collision, player_hit,
+	input barrier_collision, player_hit, upgraded,
     output [9:0]  BulletX, BulletY, BulletS,
 	output bullet_on
 );
@@ -31,8 +31,8 @@ module bullet (
         begin 
             Bullet_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Bullet_X_Motion <= 10'd0; //Ball_X_Step;
-			Bullet_Y_Pos <= BallY + BallS;
-			Bullet_X_Pos <= BallX + BallS;
+			Bullet_Y_Pos <= BallY;
+			Bullet_X_Pos <= BallX;
 			bullet_toggle <= 1'b0;
 			fire_button_released <= 1'b1;
         end
@@ -82,23 +82,35 @@ module bullet (
 					case (fire_direction)
 						2'b00:
 							begin
-								Bullet_X_Pos <= (Bullet_X_Pos - Bullet_X_Step);
+								if (upgraded)
+									Bullet_X_Pos <= (Bullet_X_Pos - Bullet_X_Step - 6);
+								else
+									Bullet_X_Pos <= (Bullet_X_Pos - Bullet_X_Step);
 								Bullet_Y_Pos <= Bullet_Y_Pos;
 							end
 						2'b01:
 							begin
-								Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step);
+								if (upgraded)
+									Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step + 6);
+								else
+									Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step);
 								Bullet_Y_Pos <= Bullet_Y_Pos;
 							end
 						2'b10:
 							begin
 								Bullet_X_Pos <= Bullet_X_Pos;
-								Bullet_Y_Pos <= (Bullet_Y_Pos + Bullet_Y_Step);
+								if (upgraded)
+									Bullet_Y_Pos <= (Bullet_Y_Pos + Bullet_Y_Step + 6);
+								else
+									Bullet_Y_Pos <= (Bullet_Y_Pos + Bullet_Y_Step);
 							end
 						2'b11:
 							begin
 								Bullet_X_Pos <= Bullet_X_Pos;
-								Bullet_Y_Pos <= (Bullet_Y_Pos - Bullet_Y_Step);
+								if (upgraded)
+									Bullet_Y_Pos <= (Bullet_Y_Pos - Bullet_Y_Step - 6);
+								else
+									Bullet_Y_Pos <= (Bullet_Y_Pos - Bullet_Y_Step);
 							end
 					endcase
 				end

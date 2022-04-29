@@ -5,7 +5,7 @@
 module ball2 (
 	input Reset, frame_clk,
 	input [7:0] keycode,
-	input was_hit, 
+	input speed_upgrade,
 	input [3:0] barrier_collision,
 	output [9:0] BallX, BallY, BallS,
 	output [1:0] direction 
@@ -25,9 +25,9 @@ module ball2 (
 
     assign Ball_Size = 8;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
-    always_ff @ (posedge Reset or posedge was_hit or posedge frame_clk )
+    always_ff @ (posedge Reset or posedge frame_clk )
     begin: Move_Ball
-        if (Reset || was_hit)  // Asynchronous Reset
+        if (Reset)  // Asynchronous Reset
         begin 
             Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;
@@ -49,7 +49,10 @@ module ball2 (
 								end
 							else 
 								begin
-									Ball_X_Motion <= -1;//A
+									if (speed_upgrade)
+										Ball_X_Motion <= -3;
+									else
+										Ball_X_Motion <= -1;//A
 									Ball_Y_Motion <= 0;
 								end
 							direction_delayed <= 2'b00;
@@ -65,7 +68,10 @@ module ball2 (
 								end
 							else
 								begin
-									Ball_X_Motion <= 1;//D
+									if (speed_upgrade)
+										Ball_X_Motion <= 3;
+									else
+										Ball_X_Motion <= 1;//D
 						  			Ball_Y_Motion <= 0;
 								end
 							direction_delayed <= 2'b01;
@@ -80,7 +86,10 @@ module ball2 (
 								end
 							else
 								begin
-					        		Ball_Y_Motion <= 1;//S
+					        		if (speed_upgrade)
+										Ball_Y_Motion <= 3;
+									else
+										Ball_Y_Motion <= 1;//S
 							  		Ball_X_Motion <= 0;
 								end
 							direction_delayed <= 2'b10;
@@ -95,7 +104,10 @@ module ball2 (
 								end
 							else
 								begin
-									Ball_Y_Motion <= -1;//W
+									if (speed_upgrade)
+										Ball_Y_Motion <= -3;
+									else
+										Ball_Y_Motion <= -1;//W
 							  		Ball_X_Motion <= 0;
 								end
 							direction_delayed <= 2'b11;
