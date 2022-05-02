@@ -11,7 +11,7 @@ module ball (
 	output [1:0] direction
 );
     
-    logic [9:0] Ball_X_Pos, Ball_X_Motion, Ball_Y_Pos, Ball_Y_Motion, Ball_Size;
+    logic [9:0] Ball_X_Pos, Ball_Y_Pos, Ball_Size;
 	logic [1:0] direction_delayed; // 00 = Facing Left, 01 = Right, 10 = Down, 11 = Up
 	 
     parameter [9:0] Ball_X_Center=160;  // Center position on the X axis
@@ -29,9 +29,7 @@ module ball (
     begin: Move_Ball
         if (Reset)  // Asynchronous Reset
         begin 
-            Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
-			Ball_X_Motion <= 10'd0; //Ball_X_Step;
-			Ball_Y_Pos <= Ball_Y_Center;
+            Ball_Y_Pos <= Ball_Y_Center;
 			Ball_X_Pos <= Ball_X_Center;
 			direction_delayed <= 2'b01; 
         end
@@ -44,16 +42,16 @@ module ball (
 							if ( ((Ball_X_Pos - Ball_Size) <= Ball_X_Min) ||
 								 barrier_collision[1] ) 
 								begin
-				  					Ball_X_Motion <= 0;
-								  	Ball_Y_Motion <= 0;
+				  					Ball_X_Pos <= Ball_X_Pos;
+								  	Ball_Y_Pos <= Ball_Y_Pos;
 								end
 							else 
 								begin
 									if(speed_upgrade)
-										Ball_X_Motion <= -3;//A
+										Ball_X_Pos <= Ball_X_Pos - 3;//A
 									else
-										Ball_X_Motion <= -1;//A
-									Ball_Y_Motion <= 0;
+										Ball_X_Pos <= Ball_X_Pos - 1;//A
+									Ball_Y_Pos <= Ball_Y_Pos;
 								end
 							direction_delayed <= 2'b00;
 						end
@@ -63,16 +61,16 @@ module ball (
 				        	if ( ((Ball_X_Pos + Ball_Size) >= Ball_X_Max) ||
 							     barrier_collision[0] )  
 					  			begin
-									Ball_X_Motion <= 0;  
-									Ball_Y_Motion <= 0;
+									Ball_X_Pos <= Ball_X_Pos;  
+									Ball_Y_Pos <= Ball_Y_Pos;
 								end
 							else
 								begin
 									if (speed_upgrade)
-										Ball_X_Motion <= 3;
+										Ball_X_Pos <= Ball_X_Pos + 3;
 									else
-										Ball_X_Motion <= 1;//D
-						  			Ball_Y_Motion <= 0;
+										Ball_X_Pos <= Ball_X_Pos + 1; //D
+						  			Ball_Y_Pos <= Ball_Y_Pos;
 								end
 							direction_delayed <= 2'b01;
 						end 
@@ -81,16 +79,16 @@ module ball (
 							if ( ((Ball_Y_Pos + Ball_Size) >= Ball_Y_Max) ||
 							     barrier_collision[2] )  
 					  			begin
-									Ball_Y_Motion <= 0; 
-									Ball_X_Motion <= 0;
+									Ball_Y_Pos <= Ball_Y_Pos; 
+									Ball_X_Pos <= Ball_X_Pos;
 								end
 							else
 								begin
 					        		if(speed_upgrade)
-										Ball_Y_Motion <= 3;//S
+										Ball_Y_Pos <= Ball_Y_Pos + 3;//S
 							  		else
-									  	Ball_Y_Motion <= 1;
-									Ball_X_Motion <= 0;
+									  	Ball_Y_Pos <= Ball_Y_Pos + 1;
+									Ball_X_Pos <= Ball_X_Pos;
 								end
 							direction_delayed <= 2'b10;
 						end  
@@ -99,34 +97,31 @@ module ball (
 							if ( ((Ball_Y_Pos - Ball_Size) <= Ball_Y_Min) || 
 							     barrier_collision[3])  
 					  			begin
-									Ball_Y_Motion <= 0;
-									Ball_X_Motion <= 0;
+									Ball_Y_Pos <= Ball_Y_Pos;
+									Ball_X_Pos <= Ball_X_Pos;
 								end
 							else
 								begin
 									if (speed_upgrade)
-										Ball_Y_Motion <= -3;
+										Ball_Y_Pos <= Ball_Y_Pos - 3;
 									else
-										Ball_Y_Motion <= -1;//W
-							  		Ball_X_Motion <= 0;
+										Ball_Y_Pos <= Ball_Y_Pos - 1;//W
+							  		Ball_X_Pos <= Ball_X_Pos;
 								end
 							direction_delayed <= 2'b11;
 						end	  
 				default: begin
-							Ball_X_Motion <= 0;
-							Ball_Y_Motion <= 0;
+							Ball_X_Pos <= Ball_X_Pos;
+							Ball_Y_Pos <= Ball_Y_Pos;
 						 end
 			   endcase
-				 
-				 Ball_Y_Pos <= (Ball_Y_Pos + Ball_Y_Motion);  // Update ball position
-				 Ball_X_Pos <= (Ball_X_Pos + Ball_X_Motion);
 					
 		end  
     end
-       
-    assign BallX = Ball_X_Pos;
-    assign BallY = Ball_Y_Pos;
-    assign BallS = Ball_Size;
+
+	assign BallX = Ball_X_Pos;
+	assign BallY = Ball_Y_Pos;
+	assign BallS = Ball_Size;
     assign direction = direction_delayed;
 
 endmodule

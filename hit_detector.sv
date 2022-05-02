@@ -6,19 +6,22 @@ module hit_detector (
     input Reset, frame_clk,
     input [9:0] BallX, BallY, Ball2X, Ball2Y, Ball_Size,
     input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size,
-    input bullet_on, bullet2_on,
-    output player_1_hit, player_2_hit,
+    input [9:0] ArmorX, ArmorY, Armor_Height_Halved, Armor_Length_Halved,
+    input ArmorEnabled,
+    output player_1_hit, player_2_hit, bullet_on_bullet_hit, armor_hit,
     output [4:0] player_1_score, player_2_score
 );
 
     logic p1_hit_latched, p2_hit_latched;
-
+    
     always_ff @ (posedge Reset or posedge frame_clk)
     begin
         if (Reset)
         begin
             p1_hit_latched <= 1'b0;
             p2_hit_latched <= 1'b0;
+            // armor_hit <= 1'b0;
+            // bullet_on_bullet_hit <= 1'b0;
             player_1_score <= 5'b0;
             player_2_score <= 5'b0;
         end
@@ -110,11 +113,98 @@ module hit_detector (
 
             else
                 p1_hit_latched <= 1'b0;
-
         end
+    end
+
+    always_comb
+    begin
+        // Bullet hits armor
+            if (ArmorEnabled)
+            begin
+                if ( (Bullet2X - Bullet_Size) >= (ArmorX - Armor_Length_Halved) &&
+                 (Bullet2X - Bullet_Size) <= (ArmorX + Armor_Length_Halved) &&
+                 (Bullet2Y <= ArmorY + Armor_Height_Halved) &&
+                 (Bullet2Y >= ArmorY - Armor_Height_Halved))
+                    armor_hit = 1'b1;
+
+                else if ( (Bullet2X + Bullet_Size) >= (ArmorX - Armor_Length_Halved) &&
+                    (Bullet2X + Bullet_Size) <= (ArmorX + Armor_Length_Halved) &&
+                    (Bullet2Y <= ArmorY + Armor_Height_Halved) &&
+                    (Bullet2Y >= ArmorY - Armor_Height_Halved))
+                        armor_hit = 1'b1;
+                
+                else if ( (Bullet2Y - Bullet_Size) >= (ArmorY - Armor_Height_Halved) &&
+                    (Bullet2Y - Bullet_Size) <= (ArmorY + Armor_Height_Halved) &&
+                    (Bullet2X <= ArmorX + Armor_Length_Halved) &&
+                    (Bullet2X >= ArmorX - Armor_Length_Halved))
+                        armor_hit = 1'b1;
+                
+                else if ( (Bullet2Y + Bullet_Size) >= (ArmorY - Armor_Height_Halved) &&
+                    (Bullet2Y + Bullet_Size) <= (ArmorY + Armor_Height_Halved) &&
+                    (Bullet2X <= ArmorX + Armor_Length_Halved) &&
+                    (Bullet2X >= ArmorX - Armor_Length_Halved))
+                        armor_hit = 1'b1;
+
+                else if ( (BulletX - Bullet_Size) >= (ArmorX - Armor_Length_Halved) &&
+                    (BulletX - Bullet_Size) <= (ArmorX + Armor_Length_Halved) &&
+                    (BulletY <= ArmorY + Armor_Height_Halved) &&
+                    (BulletY >= ArmorY - Armor_Height_Halved))
+                        armor_hit = 1'b1;
+
+                else if ( (BulletX + Bullet_Size) >= (ArmorX - Armor_Length_Halved) &&
+                    (BulletX + Bullet_Size) <= (ArmorX + Armor_Length_Halved) &&
+                    (BulletY <= ArmorY + Armor_Height_Halved) &&
+                    (BulletY >= ArmorY - Armor_Height_Halved))
+                        armor_hit = 1'b1;
+                
+                else if ( (BulletY - Bullet_Size) >= (ArmorY - Armor_Height_Halved) &&
+                    (BulletY - Bullet_Size) <= (ArmorY + Armor_Height_Halved) &&
+                    (BulletX <= ArmorX + Armor_Length_Halved) &&
+                    (BulletX >= ArmorX - Armor_Length_Halved))
+                        armor_hit = 1'b1;
+                
+                else if ( (BulletY + Bullet_Size) >= (ArmorY - Armor_Height_Halved) &&
+                    (BulletY + Bullet_Size) <= (ArmorY + Armor_Height_Halved) &&
+                    (BulletX <= ArmorX + Armor_Length_Halved) &&
+                    (BulletX >= ArmorX - Armor_Length_Halved))
+                        armor_hit = 1'b1;
+
+                else
+                    armor_hit = 1'b0;
+            end
+            else
+                armor_hit = 1'b0;
+
+        // Both bullets hit each other (added extra padding due to sync delay)
+        if ( (Bullet2X) >= (BulletX - Bullet_Size - 10) &&
+                (Bullet2X) <= (BulletX + Bullet_Size + 10) &&
+                (Bullet2Y <= BulletY + Bullet_Size) &&
+                (Bullet2Y >= BulletY - Bullet_Size))
+                bullet_on_bullet_hit = 1'b1;
+
+        else if ( (Bullet2X) >= (BulletX - Bullet_Size - 10) &&
+                (Bullet2X) <= (BulletX + Bullet_Size + 10) &&
+                (Bullet2Y <= BulletY + Bullet_Size) &&
+                (Bullet2Y >= BulletY - Bullet_Size))
+                bullet_on_bullet_hit = 1'b1;
+        
+        else if ( (Bullet2Y) >= (BulletY - Bullet_Size - 10) &&
+                (Bullet2Y) <= (BulletY + Bullet_Size + 10) &&
+                (Bullet2X <= BulletX + Bullet_Size) &&
+                (Bullet2X >= BulletX - Bullet_Size))
+                bullet_on_bullet_hit = 1'b1;
+        
+        else if ( (Bullet2Y) >= (BulletY - Bullet_Size - 10) &&
+                (Bullet2Y) <= (BulletY + Bullet_Size + 10) &&
+                (Bullet2X <= BulletX + Bullet_Size) &&
+                (Bullet2X >= BulletX - Bullet_Size))
+                bullet_on_bullet_hit = 1'b1;
+
+        else
+            bullet_on_bullet_hit = 1'b0;
     end
 
     assign player_1_hit = p1_hit_latched;
     assign player_2_hit = p2_hit_latched;
-
+    
 endmodule
