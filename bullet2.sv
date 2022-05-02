@@ -7,13 +7,13 @@ module bullet2 (
 	input [1:0] direction,
 	input [7:0] keycode,
 	input [9:0] BallX, BallY, BallS,
-	input barrier_collision, player_hit,
+	input barrier_collision, player_hit, upgraded, bullet_on_bullet_hit, armor_hit,
     output [9:0]  BulletX, BulletY, BulletS,
 	output bullet_on
 );
     
     logic [9:0] Bullet_X_Pos, Bullet_X_Motion, Bullet_Y_Pos, Bullet_Y_Motion, Bullet_Size;
-	logic [1:0] direction_latched, fire_direction;
+	logic [1:0] direction_latched, fire_direction; // 00 = Left, 01 = Right, 10 = Down, 11 = Up
 	logic bullet_toggle, fire_button_released, ready_to_fire;
 	 
     parameter [9:0] Bullet_X_Min=1;       // Leftmost point on the X axis
@@ -23,16 +23,14 @@ module bullet2 (
     parameter [9:0] Bullet_X_Step=12;      // Step size on the X axis
     parameter [9:0] Bullet_Y_Step=12;      // Step size on the Y axis
 
-    assign Bullet_Size = 4;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
+    assign Bullet_Size = 2;  // assigns the value 4 as a 10-digit binary number, ie "0000000100"
    
     always_ff @ (posedge Reset or posedge frame_clk )
     begin: Move_Ball
         if (Reset)  // Asynchronous Reset
         begin 
-            Bullet_Y_Motion <= 10'd0; //Ball_Y_Step;
-			Bullet_X_Motion <= 10'd0; //Ball_X_Step;
-			Bullet_Y_Pos <= BallY + BallS;
-			Bullet_X_Pos <= BallX + BallS;
+            Bullet_Y_Pos <= BallY;
+			Bullet_X_Pos <= BallX;
 			bullet_toggle <= 1'b0;
 			fire_button_released <= 1'b1;
         end
@@ -51,7 +49,7 @@ module bullet2 (
 				else if ( (Bullet_X_Pos - Bullet_Size) <= Bullet_X_Min )  // Ball is at the Left edge
 					bullet_toggle <= 1'b0;
 				
-				else if (barrier_collision || player_hit)
+				else if (barrier_collision || player_hit || bullet_on_bullet_hit || armor_hit)
 					bullet_toggle <= 1'b0;
 					  
 				else
@@ -82,23 +80,35 @@ module bullet2 (
 					case (fire_direction)
 						2'b00:
 							begin
-								Bullet_X_Pos <= (Bullet_X_Pos - Bullet_X_Step);
+								if (upgraded)
+									Bullet_X_Pos <= (Bullet_X_Pos - Bullet_X_Step - 6);
+								else
+									Bullet_X_Pos <= (Bullet_X_Pos - Bullet_X_Step);
 								Bullet_Y_Pos <= Bullet_Y_Pos;
 							end
 						2'b01:
 							begin
-								Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step);
+								if (upgraded)
+									Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step + 6);
+								else
+									Bullet_X_Pos <= (Bullet_X_Pos + Bullet_X_Step);
 								Bullet_Y_Pos <= Bullet_Y_Pos;
 							end
 						2'b10:
 							begin
 								Bullet_X_Pos <= Bullet_X_Pos;
-								Bullet_Y_Pos <= (Bullet_Y_Pos + Bullet_Y_Step);
+								if (upgraded)
+									Bullet_Y_Pos <= (Bullet_Y_Pos + Bullet_Y_Step + 6);
+								else
+									Bullet_Y_Pos <= (Bullet_Y_Pos + Bullet_Y_Step);
 							end
 						2'b11:
 							begin
 								Bullet_X_Pos <= Bullet_X_Pos;
-								Bullet_Y_Pos <= (Bullet_Y_Pos - Bullet_Y_Step);
+								if (upgraded)
+									Bullet_Y_Pos <= (Bullet_Y_Pos - Bullet_Y_Step - 6);
+								else
+									Bullet_Y_Pos <= (Bullet_Y_Pos - Bullet_Y_Step);
 							end
 					endcase 
 				end
