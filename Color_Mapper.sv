@@ -7,6 +7,7 @@ module color_mapper (
     input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size, bullet_on, bullet2_on,
     input [9:0] BarrierX, BarrierY, Barrier_Height_Halved, Barrier_Length_Halved,
     input [9:0] Barrier2X, Barrier2Y, Barrier_2_Height_Halved, Barrier_2_Length_Halved,
+    input [9:0] Barrier3X, Barrier3Y, Barrier_3_Height_Halved, Barrier_3_Length_Halved,
     input [9:0] UpgradeX, UpgradeY, UpgradeDrawEnable, Upgrade2X, Upgrade2Y, Upgrade2DrawEnable, Upgrade_Size,
     input [9:0] Upgrade3X, Upgrade3Y, Upgrade3DrawEnable,
     input [9:0] ArmorX, ArmorY, Armor_Height_Halved, Armor_Length_Halved, ArmorDrawEnable,
@@ -49,6 +50,9 @@ module color_mapper (
             barrier_on = 1'b1;
         else if ((DrawX >= Barrier2X - Barrier_2_Length_Halved) && (DrawX <= Barrier2X + Barrier_2_Length_Halved) &&
             (DrawY >= Barrier2Y - Barrier_2_Height_Halved) && (DrawY <= Barrier2Y + Barrier_2_Height_Halved)) 
+            barrier_on = 1'b1;
+        else if ((DrawX >= Barrier3X - Barrier_3_Length_Halved) && (DrawX <= Barrier3X + Barrier_3_Length_Halved) &&
+            (DrawY >= Barrier3Y - Barrier_3_Height_Halved) && (DrawY <= Barrier3Y + Barrier_3_Height_Halved)) 
             barrier_on = 1'b1;
         else 
             barrier_on = 1'b0;

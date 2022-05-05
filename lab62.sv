@@ -77,7 +77,9 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 	logic [3:0] p1_barrier_collision, p2_barrier_collision;
 	logic b1_barrier_collision, b2_barrier_collision;
 	logic [3:0] p1_barrier_collision_1, p2_barrier_collision_1, p1_barrier_collision_2, p2_barrier_collision_2;
+	logic [3:0] p1_barrier_collision_3, p2_barrier_collision_3;
 	logic b1_barrier_collision_1, b2_barrier_collision_1, b1_barrier_collision_2, b2_barrier_collision_2;
+	logic b1_barrier_collision_3, b2_barrier_collision_3;
 	logic bullet_1_upgraded, bullet_2_upgraded, bullet_was_collected;
 	logic speed_1_upgraded, speed_2_upgraded, speed_was_collected;
 	logic armor_was_collected, armor_hit;
@@ -176,10 +178,10 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 	assign hex_num_0 = player_2_score[3:0];
 	assign hex_num_1 = player_2_score[4]; 
 	assign new_round = player_1_hit | player_2_hit;
-	assign p1_barrier_collision = p1_barrier_collision_1 | p1_barrier_collision_2;
-	assign p2_barrier_collision = p2_barrier_collision_1 | p2_barrier_collision_2;
-	assign b1_barrier_collision = b1_barrier_collision_1 | b1_barrier_collision_2;
-	assign b2_barrier_collision = b2_barrier_collision_1 | b2_barrier_collision_2;
+	assign p1_barrier_collision = p1_barrier_collision_1 | p1_barrier_collision_2 | p1_barrier_collision_3;
+	assign p2_barrier_collision = p2_barrier_collision_1 | p2_barrier_collision_2 | p2_barrier_collision_3;
+	assign b1_barrier_collision = b1_barrier_collision_1 | b1_barrier_collision_2 | b1_barrier_collision_3;
+	assign b2_barrier_collision = b2_barrier_collision_1 | b2_barrier_collision_2 | b2_barrier_collision_3;
 	assign Reset_arena = Reset_h | new_round;
 
 	// Form upgrade coords like this '{UpgradeX, UpgradeY}
@@ -193,11 +195,13 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 	upgrade_armor ua(.Reset(Reset_arena), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .UpgradeX(ua_coords[0]), .UpgradeY(ua_coords[1]), .Upgrade_Size(collectable_size), .was_collected(armor_was_collected), .Armor_Height_Halved(Armor_Height_Halved), .Armor_Length_Halved(Armor_Length_Halved), .ArmorX(ArmorX), .ArmorY(ArmorY), .p1_direction(p1_direction), .p2_direction(p2_direction));
 
 	// Form barrier params like this: '{BarrierX, BarrierY, Barrier_Height_Halved, Barrier_Length_Halved}
-	parameter int barrier_1_params[4] = '{300, 200, 15, 60};
-	parameter int barrier_2_params[4] = '{400, 140, 30, 20};
+	parameter int barrier_1_params[4] = '{320, 200, 10, 40};
+	parameter int barrier_2_params[4] = '{320, 240, 30, 20};
+	parameter int barrier_3_params[4] = '{320, 280, 10, 40};
 
 	barrier b1(.Reset(Reset_arena), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig), .Bullet_Size(bulletsizesig), .BarrierX(barrier_1_params[0]), .BarrierY(barrier_1_params[1]), .Barrier_Height_Halved(barrier_1_params[2]), .Barrier_Length_Halved(barrier_1_params[3]), .player_1_collision(p1_barrier_collision_1), .player_2_collision(p2_barrier_collision_1), .bullet_1_collision(b1_barrier_collision_1), .bullet_2_collision(b2_barrier_collision_1));
 	barrier b2(.Reset(Reset_arena), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig), .Bullet_Size(bulletsizesig), .BarrierX(barrier_2_params[0]), .BarrierY(barrier_2_params[1]), .Barrier_Height_Halved(barrier_2_params[2]), .Barrier_Length_Halved(barrier_2_params[3]), .player_1_collision(p1_barrier_collision_2), .player_2_collision(p2_barrier_collision_2), .bullet_1_collision(b1_barrier_collision_2), .bullet_2_collision(b2_barrier_collision_2));
+	barrier b3(.Reset(Reset_arena), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig), .Bullet_Size(bulletsizesig), .BarrierX(barrier_3_params[0]), .BarrierY(barrier_3_params[1]), .Barrier_Height_Halved(barrier_3_params[2]), .Barrier_Length_Halved(barrier_3_params[3]), .player_1_collision(p1_barrier_collision_3), .player_2_collision(p2_barrier_collision_3), .bullet_1_collision(b1_barrier_collision_3), .bullet_2_collision(b2_barrier_collision_3));
 	
 	ball ball(.Reset(Reset_arena), .frame_clk(VGA_VS), .keycode(keycode), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .direction(p1_direction), .barrier_collision(p1_barrier_collision), .speed_upgrade(speed_1_upgraded));
 	ball2 ball2(.Reset(Reset_arena), .frame_clk(VGA_VS), .keycode(keycode1), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(), .direction(p2_direction), .barrier_collision(p2_barrier_collision), .speed_upgrade(speed_2_upgraded));
@@ -213,6 +217,7 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 							 .Bullet_Size(bulletsizesig), .bullet_on(bulletOnSig), .bullet2_on(bullet2OnSig),
 							 .BarrierX(barrier_1_params[0]), .BarrierY(barrier_1_params[1]), .Barrier_Height_Halved(barrier_1_params[2]), .Barrier_Length_Halved(barrier_1_params[3]),
 							 .Barrier2X(barrier_2_params[0]), .Barrier2Y(barrier_2_params[1]), .Barrier_2_Height_Halved(barrier_2_params[2]), .Barrier_2_Length_Halved(barrier_2_params[3]),
+							 .Barrier3X(barrier_3_params[0]), .Barrier3Y(barrier_3_params[1]), .Barrier_3_Height_Halved(barrier_3_params[2]), .Barrier_3_Length_Halved(barrier_3_params[3]),
 							 .Upgrade_Size(collectable_size), .UpgradeX(us_coords[0]), .UpgradeY(us_coords[1]), .UpgradeDrawEnable(~speed_was_collected), .Upgrade2X(ub_coords[0]), .Upgrade2Y(ub_coords[1]), .Upgrade2DrawEnable(~bullet_was_collected),
 							 .Upgrade3X(ua_coords[0]), .Upgrade3Y(ua_coords[1]), .Upgrade3DrawEnable(~armor_was_collected),
 							 .ArmorX(ArmorX), .ArmorY(ArmorY), .Armor_Height_Halved(Armor_Height_Halved), .Armor_Length_Halved(Armor_Length_Halved), .ArmorDrawEnable(armor_was_collected));
