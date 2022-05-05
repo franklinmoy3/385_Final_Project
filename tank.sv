@@ -2,7 +2,7 @@
 	Player 1 Tank object
 */
 
-module ball (
+module tank (
 	input Reset, frame_clk,
 	input [7:0] keycode,
 	input speed_upgrade,

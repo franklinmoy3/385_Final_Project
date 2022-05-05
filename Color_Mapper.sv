@@ -130,9 +130,9 @@ module color_mapper (
         end
         else if (barrier_on)
         begin
-            Red = 8'h00;
-            Green = 8'hff;
-            Blue = 8'hff;
+            Red = 8'hff;
+            Green = 8'h7f;
+            Blue = 8'h00;
         end
         else if (draw_speed_upgrade)
         begin
@@ -142,9 +142,9 @@ module color_mapper (
         end
         else if (draw_bullet_upgrade)
         begin
-            Red = 8'hFA;
-            Green = 8'h2C;
-            Blue = 8'hAA;
+            Red = 8'h11;
+            Green = 8'hFC;
+            Blue = 8'h11;
         end
         else if (draw_armor_upgrade || armor_on)
         begin
