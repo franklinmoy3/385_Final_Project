@@ -7,8 +7,13 @@ module color_mapper (
     input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size, bullet_on, bullet2_on,
     input [9:0] BarrierX, BarrierY, Barrier_Height_Halved, Barrier_Length_Halved,
     input [9:0] Barrier2X, Barrier2Y, Barrier_2_Height_Halved, Barrier_2_Length_Halved,
+    input [9:0] Barrier3X, Barrier3Y, Barrier_3_Height_Halved, Barrier_3_Length_Halved,
+    input [9:0] Barrier4X, Barrier4Y, Barrier_4_Height_Halved, Barrier_4_Length_Halved,
+    input [9:0] Barrier5X, Barrier5Y, Barrier_5_Height_Halved, Barrier_5_Length_Halved,
+    input [9:0] Barrier6X, Barrier6Y, Barrier_6_Height_Halved, Barrier_6_Length_Halved,
+    input [9:0] Barrier7X, Barrier7Y, Barrier_7_Height_Halved, Barrier_7_Length_Halved,
     input [9:0] UpgradeX, UpgradeY, UpgradeDrawEnable, Upgrade2X, Upgrade2Y, Upgrade2DrawEnable, Upgrade_Size,
-    input [9:0] Upgrade3X, Upgrade3Y, Upgrade3DrawEnable,
+    input [9:0] Upgrade3X, Upgrade3Y, Upgrade3DrawEnable, Upgrade4X, Upgrade4Y, Upgrade4DrawEnable,
     input [9:0] ArmorX, ArmorY, Armor_Height_Halved, Armor_Length_Halved, ArmorDrawEnable,
     input blank,
     output logic [7:0] Red, Green, Blue
@@ -50,6 +55,21 @@ module color_mapper (
         else if ((DrawX >= Barrier2X - Barrier_2_Length_Halved) && (DrawX <= Barrier2X + Barrier_2_Length_Halved) &&
             (DrawY >= Barrier2Y - Barrier_2_Height_Halved) && (DrawY <= Barrier2Y + Barrier_2_Height_Halved)) 
             barrier_on = 1'b1;
+        else if ((DrawX >= Barrier3X - Barrier_3_Length_Halved) && (DrawX <= Barrier3X + Barrier_3_Length_Halved) &&
+            (DrawY >= Barrier3Y - Barrier_3_Height_Halved) && (DrawY <= Barrier3Y + Barrier_3_Height_Halved)) 
+            barrier_on = 1'b1;
+        else if ((DrawX >= Barrier4X - Barrier_4_Length_Halved) && (DrawX <= Barrier4X + Barrier_4_Length_Halved) &&
+            (DrawY >= Barrier4Y - Barrier_4_Height_Halved) && (DrawY <= Barrier4Y + Barrier_4_Height_Halved)) 
+            barrier_on = 1'b1;
+        else if ((DrawX >= Barrier5X - Barrier_5_Length_Halved) && (DrawX <= Barrier5X + Barrier_5_Length_Halved) &&
+            (DrawY >= Barrier5Y - Barrier_5_Height_Halved) && (DrawY <= Barrier5Y + Barrier_5_Height_Halved)) 
+            barrier_on = 1'b1;
+        else if ((DrawX >= Barrier6X - Barrier_6_Length_Halved) && (DrawX <= Barrier6X + Barrier_6_Length_Halved) &&
+            (DrawY >= Barrier6Y - Barrier_6_Height_Halved) && (DrawY <= Barrier6Y + Barrier_6_Height_Halved)) 
+            barrier_on = 1'b1;
+        else if ((DrawX >= Barrier7X - Barrier_7_Length_Halved) && (DrawX <= Barrier7X + Barrier_7_Length_Halved) &&
+            (DrawY >= Barrier7Y - Barrier_7_Height_Halved) && (DrawY <= Barrier7Y + Barrier_7_Height_Halved)) 
+            barrier_on = 1'b1;
         else 
             barrier_on = 1'b0;
         if ((DrawX >= UpgradeX - Upgrade_Size) && (DrawX <= UpgradeX + Upgrade_Size) &&
@@ -61,6 +81,10 @@ module color_mapper (
         if ((DrawX >= Upgrade2X - Upgrade_Size) && (DrawX <= Upgrade2X + Upgrade_Size) &&
             (DrawY >= Upgrade2Y - Upgrade_Size) && (DrawY <= Upgrade2Y + Upgrade_Size) &&
             Upgrade2DrawEnable) 
+            draw_bullet_upgrade = 1'b1;
+        else if ((DrawX >= Upgrade4X - Upgrade_Size) && (DrawX <= Upgrade4X + Upgrade_Size) &&
+            (DrawY >= Upgrade4Y - Upgrade_Size) && (DrawY <= Upgrade4Y + Upgrade_Size) &&
+            Upgrade4DrawEnable) 
             draw_bullet_upgrade = 1'b1;
         else
             draw_bullet_upgrade = 1'b0;
