@@ -15,6 +15,8 @@ module color_mapper (
     input [9:0] UpgradeX, UpgradeY, UpgradeDrawEnable, Upgrade2X, Upgrade2Y, Upgrade2DrawEnable, Upgrade_Size,
     input [9:0] Upgrade3X, Upgrade3Y, Upgrade3DrawEnable, Upgrade4X, Upgrade4Y, Upgrade4DrawEnable,
     input [9:0] ArmorX, ArmorY, Armor_Height_Halved, Armor_Length_Halved, ArmorDrawEnable,
+    input [9:0] BarrelX, BarrelY, Barrel_Height_Halved, Barrel_Length_Halved,
+    input [9:0] Barrel2X, Barrel2Y, Barrel2_Height_Halved, Barrel2_Length_Halved,
     input blank,
     output logic [7:0] Red, Green, Blue
 );
@@ -34,10 +36,16 @@ module color_mapper (
         if ((DrawX >= BallX - Ball_size) && (DrawX <= BallX + Ball_size) &&
             (DrawY >= BallY - Ball_size) && (DrawY <= BallY + Ball_size)) 
             ball_on = 1'b1;
+        else if ((DrawX >= BarrelX - Barrel_Length_Halved) && (DrawX <= BarrelX + Barrel_Length_Halved) &&
+            (DrawY >= BarrelY - Barrel_Height_Halved) && (DrawY <= BarrelY + Barrel_Height_Halved)) 
+            ball_on = 1'b1;
         else 
             ball_on = 1'b0;
         if ((DrawX >= Ball2X - Ball_size) && (DrawX <= Ball2X + Ball_size) &&
             (DrawY >= Ball2Y - Ball_size) && (DrawY <= Ball2Y + Ball_size)) 
+            ball2_on = 1'b1;
+        else if ((DrawX >= Barrel2X - Barrel2_Length_Halved) && (DrawX <= Barrel2X + Barrel2_Length_Halved) &&
+            (DrawY >= Barrel2Y - Barrel2_Height_Halved) && (DrawY <= Barrel2Y + Barrel2_Height_Halved)) 
             ball2_on = 1'b1;
         else 
             ball2_on = 1'b0;

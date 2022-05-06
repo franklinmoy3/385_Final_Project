@@ -93,6 +93,8 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 	logic [9:0] Random_BarrierX_2, Random_BarrierY_2, Random_Barrier_Height_2, Random_Barrier_Length_2;
 	logic [9:0] Random_BarrierX_3, Random_BarrierY_3, Random_Barrier_Height_3, Random_Barrier_Length_3;
 	logic [9:0] Random_BarrierX_4, Random_BarrierY_4, Random_Barrier_Height_4, Random_Barrier_Length_4;
+	logic [9:0] BarrelX, BarrelY, Barrel_Length_Halved, Barrel_Height_Halved;
+	logic [9:0] Barrel2X, Barrel2Y, Barrel2_Length_Halved, Barrel2_Height_Halved;
 
 //=======================================================
 //  Structural coding
@@ -225,7 +227,9 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 
 	tank ball(.Reset(Reset_arena), .frame_clk(VGA_VS), .keycode(keycode), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .direction(p1_direction), .barrier_collision(p1_barrier_collision), .speed_upgrade(speed_1_upgraded));
 	tank2 ball2(.Reset(Reset_arena), .frame_clk(VGA_VS), .keycode(keycode1), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(), .direction(p2_direction), .barrier_collision(p2_barrier_collision), .speed_upgrade(speed_2_upgraded));
-	
+	tank_barrel tb1(.Reset(Reset_arena), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball_Size(ballsizesig), .p_direction(p1_direction), .BarrelX(BarrelX), .BarrelY(BarrelY), .Barrel_Length_Halved(Barrel_Length_Halved), .Barrel_Height_Halved(Barrel_Height_Halved));
+	tank_barrel tb2(.Reset(Reset_arena), .frame_clk(VGA_VS), .BallX(ball2xsig), .BallY(ball2ysig), .Ball_Size(ballsizesig), .p_direction(p2_direction), .BarrelX(Barrel2X), .BarrelY(Barrel2Y), .Barrel_Length_Halved(Barrel2_Length_Halved), .Barrel_Height_Halved(Barrel2_Height_Halved));
+
 	bullet bullet(.Reset(Reset_arena), .frame_clk(VGA_VS), .keycode(keycode2), .BallX(ballxsig), .BallY(ballysig), .BallS(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .BulletS(bulletsizesig), .bullet_on(bulletOnSig), .direction(p1_direction), .barrier_collision(b1_barrier_collision), .player_hit(new_round), .upgraded(bullet_1_upgraded | bullet_1_upgraded_2), .bullet_on_bullet_hit(bullet_on_bullet_hit), .armor_hit(armor_hit));
 	bullet2 bullet2(.Reset(Reset_arena), .frame_clk(VGA_VS), .keycode(keycode3), .BallX(ball2xsig), .BallY(ball2ysig), .BallS(ballsizesig), .BulletX(bullet2xsig), .BulletY(bullet2ysig), .BulletS(), .bullet_on(bullet2OnSig), .direction(p2_direction), .barrier_collision(b2_barrier_collision), .player_hit(new_round), .upgraded(bullet_2_upgraded | bullet_2_upgraded_2), .bullet_on_bullet_hit(bullet_on_bullet_hit), .armor_hit(armor_hit));
 	hit_detector hd(.Reset(Reset_h), .frame_clk(VGA_VS), .BallX(ballxsig), .BallY(ballysig), .Ball2X(ball2xsig), .Ball2Y(ball2ysig), .Ball_Size(ballsizesig), .BulletX(bulletxsig), .BulletY(bulletysig), .Bullet2X(bullet2xsig), .Bullet2Y(bullet2ysig), .Bullet_Size(bulletsizesig), .player_1_hit(player_1_hit), .player_2_hit(player_2_hit), .player_1_score(player_1_score), .player_2_score(player_2_score), .bullet_on_bullet_hit(bullet_on_bullet_hit), .armor_hit(armor_hit), .ArmorEnabled(armor_was_collected), .Armor_Height_Halved, .Armor_Length_Halved, .ArmorX, .ArmorY);
@@ -245,6 +249,9 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 							 .Upgrade_Size(collectable_size), .UpgradeX(us_coords[0]), .UpgradeY(us_coords[1]), .UpgradeDrawEnable(~speed_was_collected), .Upgrade2X(ub_coords[0]), .Upgrade2Y(ub_coords[1]), .Upgrade2DrawEnable(~bullet_was_collected),
 							 .Upgrade3X(ua_coords[0]), .Upgrade3Y(ua_coords[1]), .Upgrade3DrawEnable(~armor_was_collected),
 							 .Upgrade4X(ub2_coords[0]), .Upgrade4Y(ub2_coords[1]), .Upgrade4DrawEnable(~bullet_was_collected_2),
-							 .ArmorX(ArmorX), .ArmorY(ArmorY), .Armor_Height_Halved(Armor_Height_Halved), .Armor_Length_Halved(Armor_Length_Halved), .ArmorDrawEnable(armor_was_collected));
+							 .ArmorX(ArmorX), .ArmorY(ArmorY), .Armor_Height_Halved(Armor_Height_Halved), .Armor_Length_Halved(Armor_Length_Halved), .ArmorDrawEnable(armor_was_collected),
+							 .BarrelX(BarrelX), .BarrelY(BarrelY), .Barrel_Height_Halved(Barrel_Height_Halved), .Barrel_Length_Halved(Barrel_Length_Halved),
+							 .Barrel2X(Barrel2X), .Barrel2Y(Barrel2Y), .Barrel2_Height_Halved(Barrel2_Height_Halved), .Barrel2_Length_Halved(Barrel2_Length_Halved)
+							 );
 
 endmodule
