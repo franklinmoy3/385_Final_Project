@@ -6,7 +6,7 @@ module barrier_param_gen (
 
     // Mapped pairs of base Barrier coords
     parameter int BarrierX_List[16] = '{100, 150, 200, 250, 350, 400, 450, 500, 100, 150, 200, 250, 350, 400, 450, 500};
-    parameter int BarrierY_List[16] = '{30, 45, 45, 80, 75, 25, 30, 100, 360, 405, 325, 400, 290, 345, 380, 400};
+    parameter int BarrierY_List[16] = '{45, 45, 45, 80, 75, 60, 50, 100, 360, 405, 325, 400, 290, 345, 380, 400};
     
     logic [9:0] Random_BarrierX_Latched, Random_BarrierY_Latched, Random_Barrier_Height_Latched, Random_Barrier_Length_Latched;
     logic [9:0] Prelatch_X, Prelatch_Y, Prelatch_Height, Prelatch_Length;

@@ -1,5 +1,5 @@
 Power Analyzer report for lab61
-Sat May 07 10:54:44 2022
+Sat May 07 12:27:48 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -52,19 +52,19 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.87        ;
+; Average used               ; 1.96        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;  29.0%      ;
+;     Processors 2-4         ;  31.9%      ;
 +----------------------------+-------------+
 
 
 +-------------------------------------------------------------------------------------------+
 ; Power Analyzer Summary                                                                    ;
 +----------------------------------------+--------------------------------------------------+
-; Power Analyzer Status                  ; Successful - Sat May 07 10:54:44 2022            ;
+; Power Analyzer Status                  ; Successful - Sat May 07 12:27:48 2022            ;
 ; Quartus Prime Version                  ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition      ;
 ; Revision Name                          ; lab61                                            ;
 ; Top-level Entity Name                  ; lab62                                            ;
@@ -622,7 +622,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Power Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat May 07 10:54:29 2022
+    Info: Processing started: Sat May 07 12:27:38 2022
 Info: Command: quartus_pow --read_settings_files=off --write_settings_files=off lab61 -c lab61
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (21077): Low junction temperature is 0 degrees C
@@ -711,8 +711,8 @@ Info (215049): Average toggle rate for this design is 3.778 millions of transiti
 Info (215031): Total thermal power estimate for the design is 197.30 mW
 Info: Quartus Prime Power Analyzer was successful. 0 errors, 18 warnings
     Info: Peak virtual memory: 4947 megabytes
-    Info: Processing ended: Sat May 07 10:54:44 2022
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:26
+    Info: Processing ended: Sat May 07 12:27:48 2022
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:19
 
 
