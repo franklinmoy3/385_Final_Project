@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri May 06 16:37:42 2022
+Analysis & Synthesis Status : Successful - Sat May 07 10:52:43 2022
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : lab61
 Top-level Entity Name : lab62
 Family : MAX 10
-Total logic elements : 11,002
-    Total combinational functions : 9,993
+Total logic elements : 11,004
+    Total combinational functions : 9,995
     Dedicated logic registers : 2,808
 Total registers : 2808
 Total pins : 141

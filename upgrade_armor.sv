@@ -7,8 +7,8 @@ module upgrade_armor (
     output was_collected
 );
 
-    parameter [9:0] armor_longer_dimension = 16;
-    parameter [9:0] armor_shorter_dimension = 16;
+    parameter [9:0] armor_longer_dimension = 12;
+    parameter [9:0] armor_shorter_dimension = 12;
 
     logic [1:0] armor_owner; // One hot: 00 = None, 01 = P1, 10 = P2
     logic [9:0] Armor_Length_Halved_Latched, Armor_Height_Halved_Latched;
