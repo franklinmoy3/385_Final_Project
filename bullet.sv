@@ -8,8 +8,8 @@ module bullet (
 	input [7:0] keycode,
 	input [9:0] BallX, BallY, BallS,
 	input barrier_collision, player_hit, upgraded, bullet_on_bullet_hit, armor_hit,
-    output [9:0]  BulletX, BulletY, BulletS,
-	output bullet_on
+    output logic [9:0]  BulletX, BulletY, BulletS,
+	output logic bullet_on
 );
     
     logic [9:0] Bullet_X_Pos, Bullet_X_Motion, Bullet_Y_Pos, Bullet_Y_Motion, Bullet_Size;

@@ -1,0 +1,1839 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/exobo/Courses/385fp/simulation/modelsim
+valtera_avalon_sc_fifo
+Z1 !s110 1652285849
+!i10b 1
+!s100 4mK@em][G=j]om3zJIhOc0
+IY<BAkP9]]c]`nTjaE=nMU1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1650386669
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_sc_fifo.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_sc_fifo.v
+Z4 L0 21
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1652285849.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_sc_fifo.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_sc_fifo.v|
+!i113 1
+Z7 o-vlog01compat -work fp_soc
+Z8 !s92 -vlog01compat -work fp_soc +incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules
+Z9 tCvgOpt 0
+valtera_avalon_st_clock_crosser
+Z10 !s110 1652285854
+!i10b 1
+!s100 YbU`iK^TYJ_9Hz`CZekjQ3
+IW<3QO7zmFEZZKgP21BN?<3
+R2
+R0
+Z11 w1650386670
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
+L0 22
+R5
+r1
+!s85 0
+31
+Z12 !s108 1652285854.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v|
+!i113 1
+R7
+R8
+R9
+valtera_avalon_st_handshake_clock_crosser
+Z13 !s110 1652285853
+!i10b 1
+!s100 3f<J9K;e[9FU@JKn0^PK?0
+IIZbzJgYHk@97665flf[NS0
+R2
+R0
+R11
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+Z14 L0 24
+R5
+r1
+!s85 0
+31
+Z15 !s108 1652285853.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v|
+!i113 1
+R7
+R8
+R9
+valtera_merlin_arb_adder
+Z16 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+R10
+!i10b 1
+!s100 1Jn[a;@5nZmTN?DFKQNzj2
+I36gBE;b?P2_zzhW829`XB0
+R2
+Z17 !s105 altera_merlin_arbitrator_sv_unit
+S1
+R0
+R11
+Z18 8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_arbitrator.sv
+Z19 FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_arbitrator.sv
+L0 228
+R5
+r1
+!s85 0
+31
+R12
+Z20 !s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_arbitrator.sv|
+Z21 !s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_arbitrator.sv|
+!i113 1
+Z22 o-sv -work fp_soc
+Z23 !s92 -sv -work fp_soc +incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules
+R9
+valtera_merlin_arbitrator
+R16
+R10
+!i10b 1
+!s100 NQTehjm2fNQROUMUzShGa1
+I=IYGPNI@P;fUfN3ezkYm;2
+R2
+R17
+S1
+R0
+R11
+R18
+R19
+L0 103
+R5
+r1
+!s85 0
+31
+R12
+R20
+R21
+!i113 1
+R22
+R23
+R9
+valtera_merlin_burst_adapter
+R16
+Z24 !s110 1652285855
+!i10b 1
+!s100 OCc70X^k:B?GW6i71n`L_3
+IJLP?T^oJQZieP3f]Nd>K51
+R2
+!s105 altera_merlin_burst_adapter_sv_unit
+S1
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_adapter.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_adapter.sv
+R4
+R5
+r1
+!s85 0
+31
+Z25 !s108 1652285855.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_adapter.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_adapter.sv|
+!i113 1
+R22
+R23
+R9
+valtera_merlin_burst_adapter_uncompressed_only
+R16
+Z26 !s110 1652285856
+!i10b 1
+!s100 STH]BdUM[JDMJZNJGXCd>0
+IKj3EC@6EZo68kjHSa:;SC2
+R2
+!s105 altera_merlin_burst_adapter_uncmpr_sv_unit
+S1
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_adapter_uncmpr.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_adapter_uncmpr.sv
+L0 39
+R5
+r1
+!s85 0
+31
+R25
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_adapter_uncmpr.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_adapter_uncmpr.sv|
+!i113 1
+R22
+R23
+R9
+valtera_merlin_burst_uncompressor
+R16
+R10
+!i10b 1
+!s100 f1?Rb<=9U?R9LJoHl;7>T3
+I?AECc9CmN88VP8^:@TGm40
+R2
+!s105 altera_merlin_burst_uncompressor_sv_unit
+S1
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+L0 40
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv|
+!i113 1
+R22
+R23
+R9
+valtera_merlin_master_agent
+R16
+R26
+!i10b 1
+!s100 _CJm:YX=>U2LQKH;8=@cb0
+Ie=_;j1:<KUGDEZSK5?2RK3
+R2
+!s105 altera_merlin_master_agent_sv_unit
+S1
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_master_agent.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_master_agent.sv
+L0 28
+R5
+r1
+!s85 0
+31
+Z27 !s108 1652285856.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_master_agent.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_master_agent.sv|
+!i113 1
+R22
+R23
+R9
+valtera_merlin_master_translator
+R16
+R26
+!i10b 1
+!s100 NdRk@]3fC2C@V7Rm;dQM31
+IaM8Z@d^B6]A1BUenHTfol3
+R2
+!s105 altera_merlin_master_translator_sv_unit
+S1
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_master_translator.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_master_translator.sv
+L0 32
+R5
+r1
+!s85 0
+31
+R27
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_master_translator.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_master_translator.sv|
+!i113 1
+R22
+R23
+R9
+valtera_merlin_slave_agent
+R16
+R26
+!i10b 1
+!s100 ePZN1d?B062J`OBb?blff3
+I>:M6j8ABdP[T441F1lne:0
+R2
+!s105 altera_merlin_slave_agent_sv_unit
+S1
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_slave_agent.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_slave_agent.sv
+Z28 L0 34
+R5
+r1
+!s85 0
+31
+R27
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_slave_agent.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_slave_agent.sv|
+!i113 1
+R22
+R23
+R9
+valtera_merlin_slave_translator
+R16
+R26
+!i10b 1
+!s100 k`9[YAn_dLTkg;GE`mOb61
+IZcK=N13L6zFY`<8fcl^4A0
+R2
+!s105 altera_merlin_slave_translator_sv_unit
+S1
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_slave_translator.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_slave_translator.sv
+L0 35
+R5
+r1
+!s85 0
+31
+R27
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_slave_translator.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_slave_translator.sv|
+!i113 1
+R22
+R23
+R9
+valtera_merlin_width_adapter
+R16
+R10
+!i10b 1
+!s100 QzdA5DP6CReOTH<9QzODa3
+IlSXTQZ=QE?ebYa>`Wkc]^1
+R2
+!s105 altera_merlin_width_adapter_sv_unit
+S1
+R0
+R11
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_width_adapter.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_width_adapter.sv
+L0 25
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_width_adapter.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_merlin_width_adapter.sv|
+!i113 1
+R22
+R23
+R9
+valtera_reset_controller
+Z29 !s110 1652285847
+!i10b 1
+!s100 z[H_hRO9gO=:^2E3_jWH03
+I:2Z;On:^ZXBTG2Bg>eJ8h0
+R2
+R0
+Z30 w1650386664
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_reset_controller.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_reset_controller.v
+L0 42
+R5
+r1
+!s85 0
+31
+Z31 !s108 1652285847.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_reset_controller.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_reset_controller.v|
+!i113 1
+R7
+R8
+R9
+valtera_reset_synchronizer
+Z32 !s110 1652285848
+!i10b 1
+!s100 oWLYmSO[EOX[G0PgQhZ2=0
+IAml3<:48nFQG1`EE0EjNe3
+R2
+R0
+R30
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_reset_synchronizer.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_reset_synchronizer.v
+R14
+R5
+r1
+!s85 0
+31
+R31
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_reset_synchronizer.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_reset_synchronizer.v|
+!i113 1
+R7
+R8
+R9
+valtera_std_synchronizer_nocut
+R10
+!i10b 1
+!s100 b8zV2<79GgkNg0GC<P[GJ2
+I[Z1V`ocf?dShiQm]mAD<l0
+R2
+R0
+R11
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
+L0 44
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_std_synchronizer_nocut.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/altera_std_synchronizer_nocut.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc
+R29
+!i10b 1
+!s100 iLlEB4<Z0^>7N`:I5KFWV1
+IV[kb4QdTBe5?KK;4Y8a>X1
+R2
+R0
+Z33 w1650386636
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/fp_soc.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/fp_soc.v
+L0 6
+R5
+r1
+!s85 0
+31
+!s108 1652285846.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/fp_soc.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/fp_soc.v|
+!i113 1
+R7
+!s92 -vlog01compat -work fp_soc +incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis
+R9
+vfp_soc_hex_digits_pio
+Z34 !s110 1652285851
+!i10b 1
+!s100 NK25<D00<DDBN7F5SED=z0
+I:B51n=EWf1h@RXVB=nM7D0
+R2
+R0
+R33
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_hex_digits_pio.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_hex_digits_pio.v
+R4
+R5
+r1
+!s85 0
+31
+Z35 !s108 1652285851.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_hex_digits_pio.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_hex_digits_pio.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_irq_mapper
+R16
+R13
+!i10b 1
+!s100 O?S>VHRP?lK]FJ;ln86lN3
+I1SL]DSYlV;NQ=R;Qj5k[e1
+R2
+!s105 fp_soc_irq_mapper_sv_unit
+S1
+R0
+R30
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_irq_mapper.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_irq_mapper.sv
+L0 31
+R5
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_irq_mapper.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_irq_mapper.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_jtag_uart_0
+R34
+!i10b 1
+!s100 >8BQFWFRO^?294U_EM@Tm2
+INJbA:;BJCT040Hoc4i:MU0
+R2
+R0
+Z36 w1650386637
+Z37 8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_jtag_uart_0.v
+Z38 FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_jtag_uart_0.v
+L0 331
+R5
+r1
+!s85 0
+31
+R35
+Z39 !s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_jtag_uart_0.v|
+Z40 !s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_jtag_uart_0.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_jtag_uart_0_scfifo_r
+R34
+!i10b 1
+!s100 kUgHjniNllhGcWK@IiNBi0
+IazmM3b1l<[RW@an`<c6kI1
+R2
+R0
+R36
+R37
+R38
+L0 243
+R5
+r1
+!s85 0
+31
+R35
+R39
+R40
+!i113 1
+R7
+R8
+R9
+vfp_soc_jtag_uart_0_scfifo_w
+R34
+!i10b 1
+!s100 fTTEA0LmRW]DCaa06KikY0
+IRlmZfXmCXbR6Oad3I]S>o3
+R2
+R0
+R36
+R37
+R38
+L0 78
+R5
+r1
+!s85 0
+31
+R35
+R39
+R40
+!i113 1
+R7
+R8
+R9
+vfp_soc_jtag_uart_0_sim_scfifo_r
+R34
+!i10b 1
+!s100 kPf1ZePGO>_^<QeBJzK2O0
+I6JF7gg:n5M5Q80D2>8kI92
+R2
+R0
+R36
+R37
+R38
+L0 164
+R5
+r1
+!s85 0
+31
+R35
+R39
+R40
+!i113 1
+R7
+R8
+R9
+vfp_soc_jtag_uart_0_sim_scfifo_w
+R34
+!i10b 1
+!s100 Jo3]];1^XOaZI:cQLNF^D3
+I=88UARYVWgBYK;noXaY>I3
+R2
+R0
+R36
+R37
+R38
+R4
+R5
+r1
+!s85 0
+31
+R35
+R39
+R40
+!i113 1
+R7
+R8
+R9
+vfp_soc_key
+R34
+!i10b 1
+!s100 BDmg@PKXnJie5db?RY1zh0
+Ig[UiDJ9MNMidBfF>AB<[61
+R2
+R0
+R36
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_key.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_key.v
+R4
+R5
+r1
+!s85 0
+31
+R35
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_key.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_key.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_keycode
+R34
+!i10b 1
+!s100 ;T_aQkQN^L5jD9EYTP[MW3
+ISn>?@L5WG4F=[01NVjY^g3
+R2
+R0
+R36
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_keycode.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_keycode.v
+R4
+R5
+r1
+!s85 0
+31
+R35
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_keycode.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_keycode.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_leds_pio
+R34
+!i10b 1
+!s100 BQ^YE1UJ2[V:2gOCV8hm02
+IajAVkn@FPKo=ZPA>dg`>@2
+R2
+R0
+w1650386638
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_leds_pio.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_leds_pio.v
+R4
+R5
+r1
+!s85 0
+31
+R35
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_leds_pio.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_leds_pio.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_mm_interconnect_0
+R32
+!i10b 1
+!s100 WUP5:c32W>z?Y1D1XJSj:2
+IzoGVX=Fa7Z9Xb0z]B3<Go3
+R2
+R0
+R30
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0.v
+L0 9
+R5
+r1
+!s85 0
+31
+Z41 !s108 1652285848.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_mm_interconnect_0_avalon_st_adapter
+R1
+!i10b 1
+!s100 LN;7DfJ;O@B<`99o_39:22
+I;c3J_z2>0]mYk@jdLH6j=0
+R2
+R0
+Z42 w1650386671
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter.v
+L0 9
+R5
+r1
+!s85 0
+31
+R41
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_mm_interconnect_0_avalon_st_adapter_005
+R32
+!i10b 1
+!s100 UQIRngH0UeohRn<_@C=A<2
+IgA4?^3GB0K0:ZP>nSRa0B2
+R2
+R0
+R42
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_005.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_005.v
+L0 9
+R5
+r1
+!s85 0
+31
+R41
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_005.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_005.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0
+R16
+R13
+!i10b 1
+!s100 G6zba7RkSS7bTa;<ie70K2
+I1DQOn`eG1e5KU0RPz26Oi1
+R2
+!s105 fp_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0_sv_unit
+S1
+R0
+R42
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv
+Z43 L0 66
+R5
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0
+R16
+R13
+!i10b 1
+!s100 ;oi5E:XSdoLU@E;Ifb4N20
+IlPh>f;VYjfEjCedMch?V60
+R2
+!s105 fp_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0_sv_unit
+S1
+R0
+R42
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+R43
+R5
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_cmd_demux
+R16
+R24
+!i10b 1
+!s100 Pfj;@hV1;LY?dHdanIQB[3
+I0WWk7P3[<`8fcm_BcUgRe3
+R2
+!s105 fp_soc_mm_interconnect_0_cmd_demux_sv_unit
+S1
+R0
+R11
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_cmd_demux.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_cmd_demux.sv
+Z44 L0 43
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_cmd_demux.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_cmd_demux.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_cmd_mux
+R16
+R10
+!i10b 1
+!s100 zbTa3LOV1LGJgP[3CKC[21
+Iz>]U]kNd;HXT:nFTXfIdX0
+R2
+!s105 fp_soc_mm_interconnect_0_cmd_mux_sv_unit
+S1
+R0
+R11
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_cmd_mux.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_cmd_mux.sv
+Z45 L0 51
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_cmd_mux.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_cmd_mux.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_router
+R16
+R26
+!i10b 1
+!s100 ;a3h;zSBebB<lGcNALIHJ3
+IQW[[mj>^RNfg79W:zd]4>0
+R2
+Z46 !s105 fp_soc_mm_interconnect_0_router_sv_unit
+S1
+R0
+R3
+Z47 8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router.sv
+Z48 FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router.sv
+Z49 L0 84
+R5
+r1
+!s85 0
+31
+R27
+Z50 !s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router.sv|
+Z51 !s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_router_002
+R16
+R26
+!i10b 1
+!s100 >M^a1`;2PnASETD:WU6zE1
+I`9>z9VbVP6UDnA7>j`Dl52
+R2
+Z52 !s105 fp_soc_mm_interconnect_0_router_002_sv_unit
+S1
+R0
+R3
+Z53 8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router_002.sv
+Z54 FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router_002.sv
+R49
+R5
+r1
+!s85 0
+31
+R27
+Z55 !s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router_002.sv|
+Z56 !s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router_002.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_router_002_default_decode
+R16
+R26
+!i10b 1
+!s100 >kMed6bz<6f:F6[ozDVa`1
+IkiVocl6M71?=bDfcG2E0H2
+R2
+R52
+S1
+R0
+R3
+R53
+R54
+Z57 L0 45
+R5
+r1
+!s85 0
+31
+R27
+R55
+R56
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_router_007
+R16
+R26
+!i10b 1
+!s100 WS>O@nfP`lLOh7WY7i[[g1
+IF7INMVDbI8Q6oCAj_f:XF0
+R2
+Z58 !s105 fp_soc_mm_interconnect_0_router_007_sv_unit
+S1
+R0
+R3
+Z59 8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router_007.sv
+Z60 FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router_007.sv
+R49
+R5
+r1
+!s85 0
+31
+R27
+Z61 !s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router_007.sv|
+Z62 !s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_router_007.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_router_007_default_decode
+R16
+R26
+!i10b 1
+!s100 Q6;bfY:nd5eSj[MnkVX^K0
+Io_QgRjARnVk<9G@`4TUAB1
+R2
+R58
+S1
+R0
+R3
+R59
+R60
+R57
+R5
+r1
+!s85 0
+31
+R27
+R61
+R62
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_router_default_decode
+R16
+R26
+!i10b 1
+!s100 m;2WcW2deN::FCBNAD?L<2
+I47dBMSP4DTnaXAba;dZCZ3
+R2
+R46
+S1
+R0
+R3
+R47
+R48
+R57
+R5
+r1
+!s85 0
+31
+R27
+R50
+R51
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_rsp_demux
+R16
+R10
+!i10b 1
+!s100 Eo`D0b76BHcVUCNn[[QVh1
+IEci20Cml_X]JmVjoK4WbR3
+R2
+!s105 fp_soc_mm_interconnect_0_rsp_demux_sv_unit
+S1
+R0
+R11
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_rsp_demux.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_rsp_demux.sv
+R44
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_rsp_demux.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_rsp_demux.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_mm_interconnect_0_rsp_mux
+R16
+R10
+!i10b 1
+!s100 4Q:Tz7FWKGz]C]ETcZ:z;2
+I:EPgnFGEkNiO:5nI<02=g1
+R2
+!s105 fp_soc_mm_interconnect_0_rsp_mux_sv_unit
+S1
+R0
+R11
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_rsp_mux.sv
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_rsp_mux.sv
+R45
+R5
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_rsp_mux.sv|
+!s90 -reportprogress|300|-sv|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_mm_interconnect_0_rsp_mux.sv|
+!i113 1
+R22
+R23
+R9
+vfp_soc_nios2_gen2_0
+Z63 !s110 1652285850
+!i10b 1
+!s100 `ZA<:J1ozE5;2`WWhPeIZ1
+IGWgU?gWi4SPD`dYCg@igd2
+R2
+R0
+Z64 w1650386639
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0.v
+L0 9
+R5
+r1
+!s85 0
+31
+Z65 !s108 1652285850.000000
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu
+R63
+!i10b 1
+!s100 eH7AAGcf=R7TY7Ngo0NA52
+I_VR0HdG;dAZfVDLH4hji63
+R2
+R0
+R3
+Z66 8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu.v
+Z67 FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu.v
+L0 2834
+R5
+r1
+!s85 0
+31
+R65
+Z68 !s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu.v|
+Z69 !s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_debug_slave_sysclk
+R63
+!i10b 1
+!s100 g<nhajh9dLaiSeJbabWH01
+I4j?a@]A91OfCnWS3UZNhP1
+R2
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
+R4
+R5
+r1
+!s85 0
+31
+R65
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_debug_slave_tck
+R34
+!i10b 1
+!s100 ^47D^lmk2`QC9eJ9hcc3[1
+ILD9WC8ZOHefoHUT[g:l^61
+R2
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_tck.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_tck.v
+R4
+R5
+r1
+!s85 0
+31
+R35
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_tck.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_tck.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_debug_slave_wrapper
+R34
+!i10b 1
+!s100 GRD?6Z;K7F@Em1Sz4_jLE3
+I3ld3m9oOC_?Z5eEIeV9`Y0
+R2
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
+R4
+R5
+r1
+!s85 0
+31
+R35
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_avalon_reg
+R63
+!i10b 1
+!s100 caGnl1XmELd[ZHmDIcLQ@3
+IGBkNTCQm4g_6dlCb]<k840
+R2
+R0
+R3
+R66
+R67
+L0 2023
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci
+R63
+!i10b 1
+!s100 ZNP8V=hX?`K6zi=^ANIZU1
+IZG2W]T<Em1PYTloN5=NzD3
+R2
+R0
+R3
+R66
+R67
+L0 2362
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_break
+R63
+!i10b 1
+!s100 ]KDM60_=k2Y5V[YXL8USn1
+I=]VXk;B_Z?5FKDf>J3VjV0
+R2
+R0
+R3
+R66
+R67
+L0 295
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt
+R63
+!i10b 1
+!s100 A3m`W4ULeBT3I_mJKHomF1
+I<bP5YBfhj3QIIm6z7<Xh82
+R2
+R0
+R3
+R66
+R67
+L0 1265
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_dbrk
+R63
+!i10b 1
+!s100 BQT[h;daRY`UnDbAg3Uke1
+IClQMR@X^8_Zi1gXfOna581
+R2
+R0
+R3
+R66
+R67
+L0 795
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_debug
+R63
+!i10b 1
+!s100 aDW8Q>okdPhYE2ZP1edXQ1
+I?[D8__FK0l830K4o4aSAX2
+R2
+R0
+R3
+R66
+R67
+L0 153
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_dtrace
+R63
+!i10b 1
+!s100 Y;EdXbe==XQ[SBXR3^EIB2
+Ibh[mcV6LzQPjPc9Pc[7Gc0
+R2
+R0
+R3
+R66
+R67
+L0 1183
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_fifo
+R63
+!i10b 1
+!s100 ISN[8i0bA5QZZCjmFI9jH2
+IiV7chSdo>8eFMgQS?4Wiz0
+R2
+R0
+R3
+R66
+R67
+L0 1427
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc
+R63
+!i10b 1
+!s100 bPbGVLPZj?3hS1bk3lRHK0
+ILfZi?[L82H93]hN8KMWQm0
+R2
+R0
+R3
+R66
+R67
+L0 1380
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc
+R63
+!i10b 1
+!s100 Ra8?hJ@9786g@OD]QbM=40
+IX0NnchiJkgP^b`F]=FBio1
+R2
+R0
+R3
+R66
+R67
+L0 1337
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_im
+R63
+!i10b 1
+!s100 en9Qd<h_iTPbH<[8b<QoG2
+I6E9ORWPZNL2UKa@Q0E8YL1
+R2
+R0
+R3
+R66
+R67
+L0 1936
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_itrace
+R63
+!i10b 1
+!s100 0R;gi1_4?AAXnEO>Nzi590
+IS0E`HOIlR27OhBAHF`n100
+R2
+R0
+R3
+R66
+R67
+L0 982
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_pib
+R63
+!i10b 1
+!s100 e5G3Xn>AJ5A:]QOU?66d41
+IP3[zFD?57:hi_;hKWO]a_1
+R2
+R0
+R3
+R66
+R67
+L0 1913
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_td_mode
+R63
+!i10b 1
+!s100 J]1JbcLA[C2=:F1lH5IZN1
+ID4<[928I@gmlj`GZ^Z8U<2
+R2
+R0
+R3
+R66
+R67
+L0 1115
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_oci_xbrk
+R63
+!i10b 1
+!s100 AnG6H5oJag<S<PD6b@Ea>2
+I4f:OYKIG?[3Z<P9k5[i6;1
+R2
+R0
+R3
+R66
+R67
+L0 588
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_ocimem
+R63
+!i10b 1
+!s100 z1fZaJCI65XL9P]n7HS;_3
+I<XUZR1L9?@U<@SVP@CM`k1
+R2
+R0
+R3
+R66
+R67
+L0 2181
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_nios2_performance_monitors
+R63
+!i10b 1
+!s100 e;jAakSHX9IQOoaYQAfQG1
+IMb>?CalP:`RoYB<CRKNEZ0
+R2
+R0
+R3
+R66
+R67
+L0 2006
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_ociram_sp_ram_module
+R63
+!i10b 1
+!s100 2:PLcP`flZlR3F@I;LRNP3
+IgbZL7XkmhNPD>kBA6aA2k2
+R2
+R0
+R3
+R66
+R67
+L0 2116
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_register_bank_a_module
+R63
+!i10b 1
+!s100 ;D[fN=mLMhCF[o2<`[ELK3
+Io?jNYWzdbU_9[0FeFON>j1
+R2
+R0
+R3
+R66
+R67
+R4
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_register_bank_b_module
+R63
+!i10b 1
+!s100 zSa<f_0c@Y[A7=l1<bC6>3
+IKYCLnA^?<0eUKdNRV>?442
+R2
+R0
+R3
+R66
+R67
+L0 87
+R5
+r1
+!s85 0
+31
+R65
+R68
+R69
+!i113 1
+R7
+R8
+R9
+vfp_soc_nios2_gen2_0_cpu_test_bench
+R34
+!i10b 1
+!s100 @YXA5Y:LYSP@Lz_bIRnoW2
+I@`FgIh]g];ImGNdPmE_OM2
+R2
+R0
+R3
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_test_bench.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_test_bench.v
+R4
+R5
+r1
+!s85 0
+31
+R35
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_test_bench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_nios2_gen2_0_cpu_test_bench.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_onchip_memory2_0
+R63
+!i10b 1
+!s100 KdULM8bR7OdjTTODNQT?S0
+I:TDLYeP[D]B4Ca_<WThYM2
+R2
+R0
+R64
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_onchip_memory2_0.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_onchip_memory2_0.v
+R4
+R5
+r1
+!s85 0
+31
+R65
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_onchip_memory2_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_onchip_memory2_0.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_sdram
+R63
+!i10b 1
+!s100 MFIff_MoFSZ^B[ZIgcl[W1
+IzEBK8=:I6zV5FZ3OF@:Wa2
+R2
+R0
+Z70 w1650386640
+Z71 8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sdram.v
+Z72 FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sdram.v
+L0 159
+R5
+r1
+!s85 0
+31
+R65
+Z73 !s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sdram.v|
+Z74 !s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sdram.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_sdram_input_efifo_module
+R63
+!i10b 1
+!s100 kI3hO@8Im[8[<?_Z`]Y@50
+INl9hTUGQWIJLBfFb8kcle3
+R2
+R0
+R70
+R71
+R72
+R4
+R5
+r1
+!s85 0
+31
+R65
+R73
+R74
+!i113 1
+R7
+R8
+R9
+vfp_soc_sdram_pll
+R63
+!i10b 1
+!s100 ][zkFmCmjClNllIQk=W0T3
+IU>:1BX9k<MaQnWjco^_ee1
+R2
+R0
+Z75 w1650386642
+Z76 8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sdram_pll.v
+Z77 FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sdram_pll.v
+L0 217
+R5
+r1
+!s85 0
+31
+R6
+Z78 !s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sdram_pll.v|
+Z79 !s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sdram_pll.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_sdram_pll_altpll_vg92
+R63
+!i10b 1
+!s100 =cHo@Td[CbNHUNfgaOo=j0
+ITcWUN>QKm>3hjEo[PBI_a1
+R2
+R0
+R75
+R76
+R77
+L0 130
+R5
+r1
+!s85 0
+31
+R6
+R78
+R79
+!i113 1
+R7
+R8
+R9
+vfp_soc_sdram_pll_dffpipe_l2c
+R63
+!i10b 1
+!s100 XRzf2GYnAo7XU1QMUK8ZU2
+IoHTSg5^n9FM3IAHN21JQL0
+R2
+R0
+R75
+R76
+R77
+L0 37
+R5
+r1
+!s85 0
+31
+R6
+R78
+R79
+!i113 1
+R7
+R8
+R9
+vfp_soc_sdram_pll_stdsync_sv6
+R63
+!i10b 1
+!s100 DTdCL`offKO_@`konkV250
+Iz5DzA7_jh1diXzF4LX5TC1
+R2
+R0
+R75
+R76
+R77
+L0 98
+R5
+r1
+!s85 0
+31
+R6
+R78
+R79
+!i113 1
+R7
+R8
+R9
+vfp_soc_spi_0
+R1
+!i10b 1
+!s100 9:1<m3>:b_9U=O6cZCT[Y2
+IJ0AM63Ia^<7YflecHE^ll1
+R2
+R0
+Z80 w1650386643
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_spi_0.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_spi_0.v
+L0 41
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_spi_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_spi_0.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_sysid_qsys_0
+R1
+!i10b 1
+!s100 G[`7AgX:6E5TbH8biHNbU0
+IMNdcgKjm0;9LSfPh=f1W@2
+R2
+R0
+R80
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sysid_qsys_0.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sysid_qsys_0.v
+R28
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sysid_qsys_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_sysid_qsys_0.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_timer_0
+R1
+!i10b 1
+!s100 oc@9Hn0Emdzk_SoJh:Ja=0
+IZQNzK6=n_O7[Ue]6J]8ig2
+R2
+R0
+R80
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_timer_0.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_timer_0.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_timer_0.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_timer_0.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_usb_gpx
+R1
+!i10b 1
+!s100 ?DgcD_bkEbUEHcZ7:;NgL3
+ILblEKWOGS6YBCN[hlH_@K3
+R2
+R0
+R80
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_usb_gpx.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_usb_gpx.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_usb_gpx.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_usb_gpx.v|
+!i113 1
+R7
+R8
+R9
+vfp_soc_usb_rst
+R1
+!i10b 1
+!s100 zgEDb`h5491bE>>a=kG>U2
+IR1<InSkD7TK6M;[:FjAM?1
+R2
+R0
+w1650386644
+8C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_usb_rst.v
+FC:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_usb_rst.v
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_usb_rst.v|
+!s90 -reportprogress|300|-vlog01compat|-work|fp_soc|+incdir+C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules|C:/Users/exobo/Courses/385fp/fp_soc/synthesis/submodules/fp_soc_usb_rst.v|
+!i113 1
+R7
+R8
+R9

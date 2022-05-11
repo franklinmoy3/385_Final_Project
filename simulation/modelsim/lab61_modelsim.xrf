@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+source_file = 1, C:/Users/exobo/Courses/385fp/testbench.sv
 source_file = 1, C:/Users/exobo/Courses/385fp/tank_barrel.sv
 source_file = 1, C:/Users/exobo/Courses/385fp/upgrade_speed.sv
 source_file = 1, C:/Users/exobo/Courses/385fp/upgrade_bullet.sv

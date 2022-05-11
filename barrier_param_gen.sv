@@ -1,7 +1,7 @@
 module barrier_param_gen (
     input Reset, Clk,
     input [23:0] Base,
-    output [9:0] Random_BarrierX, Random_BarrierY, Random_Barrier_Height, Random_Barrier_Length
+    output logic [9:0] Random_BarrierX, Random_BarrierY, Random_Barrier_Height, Random_Barrier_Length
 );
 
     // Mapped pairs of base Barrier coords

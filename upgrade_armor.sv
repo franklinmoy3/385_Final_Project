@@ -3,8 +3,8 @@ module upgrade_armor (
     input [9:0] BallX, BallY, Ball2X, Ball2Y, Ball_Size,
     input [1:0] p1_direction, p2_direction,
     input [9:0] UpgradeX, UpgradeY, Upgrade_Size,
-    output [9:0] ArmorX, ArmorY, Armor_Length_Halved, Armor_Height_Halved,
-    output was_collected
+    output logic [9:0] ArmorX, ArmorY, Armor_Length_Halved, Armor_Height_Halved,
+    output logic was_collected
 );
 
     parameter [9:0] armor_longer_dimension = 12;

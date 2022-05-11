@@ -2,7 +2,7 @@ module tank_barrel (
     input Reset, frame_clk,
     input [9:0] BallX, BallY, Ball_Size,
     input [1:0] p_direction,
-    output [9:0] BarrelX, BarrelY, Barrel_Length_Halved, Barrel_Height_Halved
+    output logic [9:0] BarrelX, BarrelY, Barrel_Length_Halved, Barrel_Height_Halved
 );
 
     parameter [9:0] Barrel_longer_dimension = 6;

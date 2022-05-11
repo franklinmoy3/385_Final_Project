@@ -2,7 +2,7 @@ module upgrade_bullet (
     input Reset, frame_clk,
     input [9:0] BallX, BallY, Ball2X, Ball2Y, Ball_Size,
     input [9:0] UpgradeX, UpgradeY, Upgrade_Size,
-    output bullet_1_upgraded, bullet_2_upgraded, was_collected
+    output logic bullet_1_upgraded, bullet_2_upgraded, was_collected
 );
 
     logic bullet_1_upgraded_latched, bullet_2_upgraded_latched;

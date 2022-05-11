@@ -7,8 +7,8 @@ module tank (
 	input [7:0] keycode,
 	input speed_upgrade,
 	input [3:0] barrier_collision,
-	output [9:0] BallX, BallY, BallS,
-	output [1:0] direction
+	output logic [9:0] BallX, BallY, BallS,
+	output logic [1:0] direction
 );
     
     logic [9:0] Ball_X_Pos, Ball_Y_Pos, Ball_Size;

@@ -7,8 +7,8 @@ module barrier (
 	input [9:0] BallX, BallY, Ball2X, Ball2Y, Ball_Size,
 	input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size,
 	input [9:0] BarrierX, BarrierY, Barrier_Height_Halved, Barrier_Length_Halved,
-	output [3:0] player_1_collision, player_2_collision,
-	output bullet_1_collision, bullet_2_collision
+	output logic [3:0] player_1_collision, player_2_collision,
+	output logic bullet_1_collision, bullet_2_collision
 );
 
 	// Tank Collisions (one-hot): 0000 = none, 0001 = left wall, 0010 = right wall, 0100 = top wall, 1000 = bottom wall

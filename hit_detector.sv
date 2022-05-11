@@ -8,8 +8,8 @@ module hit_detector (
     input [9:0] BulletX, BulletY, Bullet2X, Bullet2Y, Bullet_Size,
     input [9:0] ArmorX, ArmorY, Armor_Height_Halved, Armor_Length_Halved,
     input ArmorEnabled,
-    output player_1_hit, player_2_hit, bullet_on_bullet_hit, armor_hit,
-    output [7:0] player_1_score, player_2_score
+    output logic player_1_hit, player_2_hit, bullet_on_bullet_hit, armor_hit,
+    output logic [7:0] player_1_score, player_2_score
 );
 
     logic p1_hit_latched, p2_hit_latched;
